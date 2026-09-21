@@ -1,0 +1,112 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "cn";
+
+export const metadata: Metadata = {
+  title: "For agencies",
+  description:
+    "BrightLeads.AI is built for placement agents and agencies that need to streamline inquiries, community relationships, and follow-through across the United States.",
+};
+
+const pains = [
+  {
+    title: "The inquiry hits three inboxes",
+    copy: "A daughter calls, emails, and fills out a form. Each one becomes a different thread. BrightLeads.AI gives that family one home so nobody double-books a tour or drops the follow-up.",
+  },
+  {
+    title: "Community knowledge lives in people’s heads",
+    copy: "Who takes insulin management, who has a ground-floor studio this month, who pays a referral fee — that cannot sit in one agent’s Notes app if the agency is going to scale.",
+  },
+  {
+    title: "Growth stalls at ‘I need another spreadsheet’",
+    copy: "Hiring a second or fifth agent should not mean copying a Google Sheet. The operating system has to be the same whether you are an independent in one metro or a regional agency.",
+  },
+];
+
+export default function AgenciesPage() {
+  return (
+    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
+      <p className="text-xs font-semibold tracking-[0.18em] text-teal uppercase">
+        For agencies
+      </p>
+      <h1 className="mt-3 max-w-3xl font-heading text-4xl text-navy sm:text-5xl">
+        Streamline the agency without flattening the craft.
+      </h1>
+      <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
+        Placement is still a human job: listening to families, knowing homes,
+        walking hallways. BrightLeads.AI is for the operators who want that
+        work to be visible, shareable, and hard to drop — from a solo agent to
+        a multi-market shop.
+      </p>
+      <div className="mt-14 grid gap-6 md:grid-cols-3">
+        {pains.map((pain) => (
+          <article
+            key={pain.title}
+            className="rounded-2xl border border-border bg-card p-6"
+          >
+            <h2 className="font-heading text-2xl text-navy">{pain.title}</h2>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              {pain.copy}
+            </p>
+          </article>
+        ))}
+      </div>
+      <section className="mt-16 grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <h2 className="font-heading text-3xl text-navy">
+            Who we are selling to
+          </h2>
+          <p className="mt-4 text-sm leading-6 text-muted-foreground">
+            Independent placement agents, family-owned agencies, and regional
+            operators who already do this work in the United States and need
+            the operations layer to catch up with the relationships they have
+            spent years building.
+          </p>
+          <Link
+            href="/demo"
+            className={cn(buttonVariants({ size: "lg" }), "mt-6 h-11 px-5")}
+          >
+            Talk with us
+            <ArrowRight />
+          </Link>
+        </div>
+        <Accordion className="rounded-2xl border border-border bg-card px-5">
+          <AccordionItem value="solo">
+            <AccordionTrigger>Independent agents</AccordionTrigger>
+            <AccordionContent>
+              Keep every active family and community contact in a workspace you
+              can open on a phone between tours. When you bring on help, they
+              inherit the book — not a pile of forwarded emails.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="agency">
+            <AccordionTrigger>Agencies with a team</AccordionTrigger>
+            <AccordionContent>
+              Assign inquiries, see who is touring this week, and stop
+              competing with yourselves for the same community slot. Leadership
+              gets a picture of the pipeline without asking each agent for a
+              Friday update.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="us">
+            <AccordionTrigger>Operators across the US</AccordionTrigger>
+            <AccordionContent>
+              Markets differ. The operating pattern should not. BrightLeads.AI
+              is built to be sold nationwide, with room for local community
+              networks and partner homes in each metro.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </section>
+    </div>
+  );
+}
