@@ -55,7 +55,7 @@ export function DemoForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-teal/30 bg-teal-soft/60 p-8">
+      <div className="rounded-2xl border border-teal/25 bg-teal-soft p-8">
         <p className="text-xs font-semibold tracking-[0.16em] text-teal uppercase">
           Request received
         </p>

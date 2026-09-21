@@ -2,9 +2,9 @@
 
 Sales site for **BrightLeads.AI**, the professional system for senior assisted living placement agents and agencies. The offer: do all of your placement work from one place, streamline operations, and get more seniors into assisted living more efficiently. Families and communities are work inside the system — they are not the buyers.
 
-This is the product site, not the current consulting brochure at [brightleads.ai](https://brightleads.ai). Keep that domain on the old site until you cut over.
+White marketing page (`#ffffff`) with BrightBridge app color pop (sky `#0ea5e9`, indigo `#6366f1`, purple `#8b5cf6`). Dark navy is reserved for the product mock and the footer.
 
-Stack matches a modern app scaffold (Next.js, TypeScript, Tailwind, shadcn/ui) and the same GitHub → Netlify pattern as Sugar & Sound and BrightBridge Care.
+Stack matches a modern app scaffold (Next.js, TypeScript, Tailwind, shadcn/ui) and the same GitHub → Netlify pattern as the other Desktop sites.
 
 ## Local
 
@@ -40,7 +40,7 @@ Copy `.env.example` to `.env.local`. Nothing is required to run locally.
 3. Build command: `npm run build` · Node 22 · Next.js runtime via `@netlify/plugin-nextjs`
 4. After the first deploy, set `NEXT_PUBLIC_SITE_URL` and `DEMO_WEBHOOK_URL` in Netlify → Environment variables, then trigger a rebuild
 
-Do **not** attach `brightleads.ai` until you are ready to replace the live consulting site.
+Production domain: `brightleads.ai` / `www.brightleads.ai` on the Bright Leads Dev Team Netlify site (`brightleads-ai`). Preview: [https://brightleads-ai.netlify.app](https://brightleads-ai.netlify.app).
 
 ## Pages
 

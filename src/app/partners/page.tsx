@@ -54,7 +54,7 @@ export default function PartnersPage() {
           </article>
         ))}
       </div>
-      <section className="mt-16 rounded-3xl bg-teal-soft/70 px-6 py-10 sm:px-10">
+      <section className="mt-16 rounded-3xl border border-teal/20 bg-teal-soft px-6 py-10 sm:px-10">
         <h2 className="font-heading text-3xl text-foreground">
           Built for the agent’s side of the relationship
         </h2>

@@ -6,16 +6,16 @@ export function ProductPreview() {
   ];
 
   return (
-    <div className="overflow-hidden rounded-[10px] border border-border bg-[#0f1729] shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
+    <div className="overflow-hidden rounded-[10px] border border-[#1e2d4a] bg-[#0f1729] text-[#f0f4ff] shadow-[0_24px_80px_rgba(14,165,233,0.18)]">
       <div className="flex min-h-[420px]">
-        <aside className="hidden w-[168px] shrink-0 border-r border-border bg-[#0f1729] p-3 sm:block">
+        <aside className="hidden w-[168px] shrink-0 border-r border-[#1e2d4a] bg-[#0f1729] p-3 sm:block">
           <div className="mb-5 flex items-center gap-2 px-1">
             <span className="size-6 rounded-md bg-gradient-to-br from-sky-400 to-indigo-500" />
             <div>
               <p className="font-heading text-[11px] font-bold leading-none">
                 BrightLeads.AI
               </p>
-              <p className="mt-0.5 text-[9px] tracking-wide text-muted-foreground uppercase">
+              <p className="mt-0.5 text-[9px] tracking-wide text-[#8b9cc8] uppercase">
                 Placement
               </p>
             </div>
@@ -38,7 +38,7 @@ export function ProductPreview() {
           </div>
         </aside>
         <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-3 border-b border-border px-4 py-2.5">
+          <div className="flex items-center gap-3 border-b border-[#1e2d4a] px-4 py-2.5">
             <p className="text-[13px] font-medium">Dashboard</p>
             <div className="ml-auto hidden items-center gap-2 sm:flex">
               <span className="rounded-full border border-sky-400/30 bg-sky-400/10 px-2 py-0.5 text-[10px] font-semibold text-sky-400">
@@ -62,7 +62,7 @@ export function ProductPreview() {
               ].map((stat) => (
                 <div
                   key={stat.l}
-                  className="rounded-[10px] border border-border bg-[#0a0f1e] px-3 py-2.5"
+                  className="rounded-[10px] border border-[#1e2d4a] bg-[#0a0f1e] px-3 py-2.5"
                 >
                   <p className={`font-heading text-xl font-bold ${stat.c}`}>
                     {stat.n}
@@ -71,12 +71,12 @@ export function ProductPreview() {
                 </div>
               ))}
             </div>
-            <div className="mt-3 rounded-[10px] border border-border">
-              <div className="flex items-center justify-between border-b border-border px-3 py-2">
+            <div className="mt-3 rounded-[10px] border border-[#1e2d4a]">
+              <div className="flex items-center justify-between border-b border-[#1e2d4a] px-3 py-2">
                 <p className="text-[12px] font-semibold">My priority queue</p>
                 <span className="text-[10px] text-sky-400">All leads</span>
               </div>
-              <div className="divide-y divide-border">
+              <div className="divide-y divide-[#1e2d4a]">
                 {inquiries.map((row) => (
                   <div
                     key={row.family}

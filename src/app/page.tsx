@@ -61,7 +61,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-card">
+      <section className="border-y border-border bg-white">
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-3 sm:px-6">
           {[
             {
@@ -116,7 +116,7 @@ export default function HomePage() {
           ].map((item) => (
             <article
               key={item.title}
-              className="rounded-2xl border border-border bg-card p-6 shadow-[0_1px_0_rgba(12,27,51,0.04)]"
+              className="rounded-2xl border border-border bg-white p-6 shadow-[0_12px_40px_rgba(14,165,233,0.08)]"
             >
               <item.icon className="size-5 text-teal" />
               <h3 className="mt-4 font-heading text-2xl text-foreground">
@@ -184,7 +184,7 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-2">
-          <article className="rounded-3xl bg-teal-soft/70 p-8 sm:p-10">
+          <article className="rounded-3xl border border-teal/20 bg-teal-soft p-8 sm:p-10">
             <p className="text-xs font-semibold tracking-[0.16em] text-teal uppercase">
               Independent agents
             </p>
@@ -203,7 +203,7 @@ export default function HomePage() {
               Built for agents <ArrowRight className="size-4" />
             </Link>
           </article>
-          <article className="rounded-3xl border border-border bg-card p-8 sm:p-10">
+          <article className="rounded-3xl border border-border bg-white p-8 sm:p-10">
             <p className="text-xs font-semibold tracking-[0.16em] text-gold uppercase">
               Agencies
             </p>
@@ -225,7 +225,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-card">
+      <section className="border-t border-border bg-white">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-4 py-16 sm:px-6 lg:flex-row lg:items-center">
           <div className="max-w-xl">
             <div className="mb-3 flex items-center gap-2 text-teal">

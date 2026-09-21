@@ -8,7 +8,7 @@ export function SiteFooter() {
     <footer className="border-t border-border bg-navy text-primary-foreground">
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-2">
-          <Logo />
+          <Logo className="text-white" />
           <p className="mt-4 max-w-sm text-sm leading-6 text-primary-foreground/70">
             The professional system for senior assisted living placement agents
             and agencies — all of the placement work, in one place.

@@ -2,7 +2,7 @@ import { cn } from "cn";
 
 export function Logo({ className }: { className?: string }) {
   return (
-    <span className={cn("inline-flex items-center gap-2.5", className)}>
+    <span className={cn("inline-flex items-center gap-2.5 text-foreground", className)}>
       <svg
         viewBox="0 0 32 32"
         className="size-8 shrink-0"
@@ -23,7 +23,7 @@ export function Logo({ className }: { className?: string }) {
           fill="#0a0f1e"
         />
       </svg>
-      <span className="font-heading text-[15px] font-bold tracking-tight text-foreground">
+      <span className="font-heading text-[15px] font-bold tracking-tight text-current">
         BrightLeads.AI
       </span>
     </span>
