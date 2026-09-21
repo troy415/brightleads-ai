@@ -3,7 +3,7 @@ import {
   ArrowRight,
   Building2,
   ClipboardList,
-  Network,
+  Route,
   ShieldCheck,
 } from "lucide-react";
 
@@ -26,10 +26,10 @@ export default function HomePage() {
               {site.tagline}
             </h1>
             <p className="mt-6 max-w-lg text-base leading-7 text-muted-foreground sm:text-lg">
-              BrightLeads.AI is becoming the system placement professionals use
-              to take family inquiries, keep assisted living relationships
-              current, and operate inside a partner network — without losing
-              work in inboxes and spreadsheets.
+              BrightLeads.AI is the professional system for senior assisted
+              living placement. Agents and agencies run every inquiry, tour,
+              community relationship, and follow-up from one workspace — so
+              operations stay tight and more seniors move in.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -53,8 +53,8 @@ export default function HomePage() {
               </Link>
             </div>
             <p className="mt-6 text-sm text-muted-foreground">
-              Built in San Francisco. Sold to agencies throughout the United
-              States.
+              Built in San Francisco. Sold to placement agents and agencies
+              throughout the United States.
             </p>
           </div>
           <ProductPreview />
@@ -65,16 +65,16 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-3 sm:px-6">
           {[
             {
-              label: "Inquiries",
-              copy: "Every family conversation lives in one record — from first call to move-in.",
+              label: "One system",
+              copy: "The whole placement practice lives in one workspace — not across inboxes, notes, and a spreadsheet you dread opening.",
             },
             {
-              label: "Relationships",
-              copy: "Your community roster, openings, and referral terms stay as current as the last tour.",
+              label: "Tighter operations",
+              copy: "Every senior has a next step. Every community you use is current. Nothing waits on a voicemail you forgot to return.",
             },
             {
-              label: "Ecosystem",
-              copy: "Agencies and communities work as partners in the BrightLeads.AI network.",
+              label: "More move-ins",
+              copy: "Match faster, tour with intent, and close more assisted living placements with the same hours in the day.",
             },
           ].map((item) => (
             <div key={item.label}>
@@ -91,27 +91,27 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <p className="text-xs font-semibold tracking-[0.18em] text-teal uppercase">
-          What the system does
+          Inside the system
         </p>
         <h2 className="mt-3 max-w-2xl font-heading text-3xl text-navy sm:text-4xl">
-          Placement is a relationship business. Treat it like one.
+          Placement work, all in one professional workspace.
         </h2>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {[
             {
               icon: ClipboardList,
-              title: "Family inquiries",
-              copy: "Capture seniors and adult children the moment they reach out. Qualify care needs, budget, geography, and urgency — then keep follow-up on a clock instead of a sticky note.",
+              title: "Inquiries you take",
+              copy: "Seniors and families are files you work — not a second product. Capture the call, qualify care needs, budget, geography, and urgency, then keep follow-up on a clock.",
             },
             {
               icon: Building2,
-              title: "Community relationships",
-              copy: "Manage the living map of assisted living, memory care, and board-and-care homes you work with: who has openings, who takes which care levels, and who actually returns your calls.",
+              title: "Communities you place with",
+              copy: "Your roster of assisted living, memory care, and residential care homes sits next to the inquiry. Openings, care fit, and who to call are part of the placement, not a separate CRM.",
             },
             {
-              icon: Network,
-              title: "Partner ecosystem",
-              copy: "Communities, agencies, and operators can join the BrightLeads.AI world as partners — so referrals are not one-off emails, they are a shared operating layer.",
+              icon: Route,
+              title: "The path to move-in",
+              copy: "Tours, notes, family updates, applications, and close-out live on the same record. The job is to get more seniors into the right community, without dropping the file.",
             },
           ].map((item) => (
             <article
@@ -134,14 +134,15 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2">
           <div>
             <p className="text-xs font-semibold tracking-[0.18em] text-gold uppercase">
-              How agencies run it
+              How agents run it
             </p>
             <h2 className="mt-3 font-heading text-3xl sm:text-4xl">
-              Four steps from first call to a placed resident.
+              First call to a placed resident — without leaving the system.
             </h2>
             <p className="mt-4 text-sm leading-6 text-primary-foreground/70">
-              BrightLeads.AI is not another marketing funnel. It is the work
-              after the lead arrives — the part that actually places people.
+              BrightLeads.AI is not a marketing funnel and not a family-facing
+              directory. It is the professional work of placement, start to
+              finish.
             </p>
           </div>
           <ol className="space-y-6">
@@ -149,22 +150,22 @@ export default function HomePage() {
               {
                 n: "01",
                 title: "Intake the inquiry",
-                copy: "Log the family, the senior, care needs, and how they found you. Nothing sits in voicemail.",
+                copy: "Log the senior, the family decision-makers, care needs, and how they reached you. Nothing sits in voicemail.",
               },
               {
                 n: "02",
-                title: "Match communities",
-                copy: "Work from your own roster and from partners in the ecosystem. See fit before you burn a tour.",
+                title: "Match from your book",
+                copy: "Work the communities you already know. See openings and care fit before you burn a tour.",
               },
               {
                 n: "03",
-                title: "Coordinate the path",
-                copy: "Tours, notes, family updates, and community feedback live on the same inquiry.",
+                title: "Coordinate the placement",
+                copy: "Tours, notes, updates, and community feedback stay on the same file so the next step is obvious.",
               },
               {
                 n: "04",
-                title: "Keep the network warm",
-                copy: "When a community’s inventory or terms change, your next referral already knows.",
+                title: "Close and keep moving",
+                copy: "When a senior moves in, the file is complete — and the next inquiry is already in motion.",
               },
             ].map((step) => (
               <li key={step.n} className="flex gap-4 border-t border-white/10 pt-6">
@@ -185,40 +186,40 @@ export default function HomePage() {
         <div className="grid gap-10 lg:grid-cols-2">
           <article className="rounded-3xl bg-teal-soft/70 p-8 sm:p-10">
             <p className="text-xs font-semibold tracking-[0.16em] text-teal uppercase">
+              Independent agents
+            </p>
+            <h2 className="mt-3 font-heading text-3xl text-navy">
+              For agents who still run placement in email.
+            </h2>
+            <p className="mt-4 text-sm leading-6 text-muted-foreground">
+              One workspace for every active senior, every community you use,
+              and every tour on the calendar. When you bring on help, they
+              inherit the book — not a pile of forwarded threads.
+            </p>
+            <Link
+              href="/agencies"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-navy"
+            >
+              Built for agents <ArrowRight className="size-4" />
+            </Link>
+          </article>
+          <article className="rounded-3xl border border-border bg-card p-8 sm:p-10">
+            <p className="text-xs font-semibold tracking-[0.16em] text-gold uppercase">
               Agencies
             </p>
             <h2 className="mt-3 font-heading text-3xl text-navy">
-              For agents who still do this in email.
+              For shops that need the same system across the team.
             </h2>
             <p className="mt-4 text-sm leading-6 text-muted-foreground">
-              Independent agents and multi-office agencies get one place to run
-              the book of business: inquiries, tours, community contacts, and
-              the status of every family in motion.
+              Assign inquiries, see who is touring this week, and stop
+              competing with yourselves for the same community slot. Leadership
+              gets the pipeline without a Friday status hunt.
             </p>
             <Link
               href="/agencies"
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-navy"
             >
               Built for agencies <ArrowRight className="size-4" />
-            </Link>
-          </article>
-          <article className="rounded-3xl border border-border bg-card p-8 sm:p-10">
-            <p className="text-xs font-semibold tracking-[0.16em] text-gold uppercase">
-              Communities
-            </p>
-            <h2 className="mt-3 font-heading text-3xl text-navy">
-              For homes that want better partners, not more cold calls.
-            </h2>
-            <p className="mt-4 text-sm leading-6 text-muted-foreground">
-              Assisted living and memory care communities can join the
-              BrightLeads.AI ecosystem so agencies they trust already know
-              openings, care capability, and how you prefer to work.
-            </p>
-            <Link
-              href="/partners"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-navy"
-            >
-              Become a partner <ArrowRight className="size-4" />
             </Link>
           </article>
         </div>
@@ -230,15 +231,15 @@ export default function HomePage() {
             <div className="mb-3 flex items-center gap-2 text-teal">
               <ShieldCheck className="size-4" />
               <span className="text-xs font-semibold tracking-[0.16em] uppercase">
-                Operator-grade, not brochure-ware
+                Professional system, not a brochure
               </span>
             </div>
             <h2 className="font-heading text-3xl text-navy sm:text-4xl">
-              Ready to run placement on a real system?
+              Ready to place more seniors from one system?
             </h2>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              We’ll walk your team through inquiry intake, community
-              relationships, and how partners show up in the workspace.
+              We’ll walk your placement workflow — inquiries, community roster,
+              and the path to move-in — against the way you work today.
             </p>
           </div>
           <Link

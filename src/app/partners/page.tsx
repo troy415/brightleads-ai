@@ -8,21 +8,21 @@ import { cn } from "cn";
 export const metadata: Metadata = {
   title: "Partners",
   description:
-    "Assisted living and memory care communities can join the BrightLeads.AI ecosystem and work with placement agencies as true partners.",
+    "Inside BrightLeads.AI, placement agents keep the communities they place with — openings, care fit, and who to call — in the same system as the inquiry.",
 };
 
 const benefits = [
   {
-    title: "Show up where agencies already work",
-    copy: "Instead of another PDF and a once-a-year lunch, your home lives in the same system agents use when a family is ready this week.",
+    title: "Your roster, next to the inquiry",
+    copy: "The homes you actually place with sit in the same workspace as the senior you are working. No hunting a sidebar spreadsheet while a daughter is on the line.",
   },
   {
-    title: "Keep openings and care truthful",
-    copy: "Agencies stop guessing whether you have a studio, whether you take two-person transfers, or whether marketing is still quoting last quarter’s availability.",
+    title: "Openings and care stay truthful",
+    copy: "You stop guessing whether a community has a studio, takes two-person transfers, or is still quoting last quarter’s availability.",
   },
   {
-    title: "Get referrals with context",
-    copy: "A partner inquiry should arrive with the care picture, the decision-makers, and why this family is looking — not a one-line email that burns a tour slot.",
+    title: "Referrals go out with context",
+    copy: "When you send a family to a home, the care picture, decision-makers, and why they are looking travel with the file — so the tour is worth everyone’s time.",
   },
 ];
 
@@ -33,12 +33,13 @@ export default function PartnersPage() {
         Partners
       </p>
       <h1 className="mt-3 max-w-3xl font-heading text-4xl text-navy sm:text-5xl">
-        Join the BrightLeads.AI world as a community, not a listing.
+        Communities you place with, inside the same system.
       </h1>
       <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
-        Placement agencies already sit between families and communities. The
-        ecosystem makes that relationship operational: preferred partners,
-        current inventory, and a cleaner path from referral to move-in.
+        Partner homes are part of the agent’s book of business, not a second
+        product and not a consumer directory. BrightLeads.AI keeps the
+        communities you work with current so you can match faster and get more
+        seniors moved in.
       </p>
       <div className="mt-14 grid gap-6 md:grid-cols-3">
         {benefits.map((item) => (
@@ -55,31 +56,30 @@ export default function PartnersPage() {
       </div>
       <section className="mt-16 rounded-3xl bg-teal-soft/70 px-6 py-10 sm:px-10">
         <h2 className="font-heading text-3xl text-navy">
-          Who should apply
+          Built for the agent’s side of the relationship
         </h2>
         <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground">
-          Licensed assisted living, memory care, and residential care
-          communities that already work with placement professionals — or want
-          to — and are willing to keep their profile honest. This is not a
-          consumer directory. It is a partner layer for the agencies using
-          BrightLeads.AI.
+          Independent agents and agencies use this to manage preferred homes,
+          keep inventory honest, and send cleaner referrals. Communities are
+          records you work — this page is not a signup for families or for
+          community marketing teams.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Link
             href="/demo"
             className={cn(buttonVariants({ size: "lg" }), "h-11 px-5")}
           >
-            Talk about partnership
+            See it in a demo
             <ArrowRight />
           </Link>
           <Link
-            href="/contact"
+            href="/platform"
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
               "h-11 px-5"
             )}
           >
-            Contact the team
+            Back to the platform
           </Link>
         </div>
       </section>

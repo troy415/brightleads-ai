@@ -8,7 +8,7 @@ import { cn } from "cn";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact BrightLeads.AI in San Francisco — phone, email, and office for placement agencies and community partners.",
+    "Contact BrightLeads.AI in San Francisco — phone, email, and office for placement agents and agencies.",
 };
 
 export default function ContactPage() {
@@ -18,11 +18,13 @@ export default function ContactPage() {
         Contact
       </p>
       <h1 className="mt-3 max-w-2xl font-heading text-4xl text-navy sm:text-5xl">
-        San Francisco office. Nationwide conversations.
+        San Francisco office. Nationwide conversations with agents.
       </h1>
       <p className="mt-5 max-w-xl text-base leading-7 text-muted-foreground">
-        Whether you run a placement practice or a community that wants into the
-        partner ecosystem, start here.
+        This is for placement agents and agencies who want to run the practice
+        on BrightLeads.AI. If you are a family looking for a home, call a
+        placement professional in your market — this site is not a consumer
+        directory.
       </p>
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         <article className="rounded-2xl border border-border bg-card p-6">
@@ -50,7 +52,7 @@ export default function ContactPage() {
             {site.email}
           </a>
           <p className="mt-2 text-sm text-muted-foreground">
-            Demos, partnerships, and press.
+            Demos and agency conversations.
           </p>
         </article>
         <article className="rounded-2xl border border-border bg-card p-6">

@@ -64,7 +64,8 @@ export function DemoForm() {
         </h2>
         <p className="mt-3 text-sm leading-6 text-muted-foreground">
           A BrightLeads.AI teammate will follow up to schedule a working demo of
-          inquiry intake, community relationships, and the partner ecosystem.
+          the system you’d use to run placements — inquiries, community roster,
+          and the path to move-in.
           If it’s urgent, call us at{" "}
           <a href="tel:+14157412648" className="font-medium text-navy underline">
             (415) 741-2648

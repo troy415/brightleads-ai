@@ -10,9 +10,8 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <Logo onDark />
           <p className="mt-4 max-w-sm text-sm leading-6 text-primary-foreground/70">
-            Intelligent operations for senior living placement agencies — family
-            inquiries, community relationships, and a partner ecosystem in one
-            system.
+            The professional system for senior assisted living placement agents
+            and agencies — all of the placement work, in one place.
           </p>
         </div>
         <div>

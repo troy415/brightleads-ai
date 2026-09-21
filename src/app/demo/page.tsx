@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Request a demo",
   description:
-    "Request a BrightLeads.AI demo for your placement agency. We’ll walk through inquiries, community relationships, and the partner ecosystem.",
+    "Request a BrightLeads.AI demo for your placement practice. We’ll walk the system you’d use to run inquiries, communities, and the path to move-in.",
 };
 
 export default function DemoPage() {
@@ -20,9 +20,10 @@ export default function DemoPage() {
           Bring your pipeline. We’ll map it.
         </h1>
         <p className="mt-5 text-base leading-7 text-muted-foreground">
-          Demos are working sessions, not slide decks. Tell us how you take
-          inquiries today and which communities you rely on. We’ll show how
-          that work looks inside BrightLeads.AI.
+          Demos are working sessions for placement agents and agencies — not
+          slide decks, and not a pitch to families. Tell us how you take
+          inquiries today and which communities you actually use. We’ll show
+          that work inside BrightLeads.AI.
         </p>
         <ul className="mt-8 space-y-3 text-sm leading-6 text-muted-foreground">
           <li>Typically 30–40 minutes with someone who knows placement operations.</li>

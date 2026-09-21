@@ -26,12 +26,12 @@ const instrument = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "BrightLeads.AI — Placement operations for senior living",
+    default: "BrightLeads.AI — Professional system for placement agents",
     template: "%s · BrightLeads.AI",
   },
   description: site.description,
   openGraph: {
-    title: "BrightLeads.AI — Placement operations for senior living",
+    title: "BrightLeads.AI — Professional system for placement agents",
     description: site.description,
     type: "website",
   },

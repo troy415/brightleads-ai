@@ -1,6 +1,6 @@
 # BrightLeads.AI — marketing site
 
-Sales site for **BrightLeads.AI**, the operating system for senior living placement agencies: family inquiries, community relationships, and a partner ecosystem.
+Sales site for **BrightLeads.AI**, the professional system for senior assisted living placement agents and agencies. The offer: do all of your placement work from one place, streamline operations, and get more seniors into assisted living more efficiently. Families and communities are work inside the system — they are not the buyers.
 
 This is the product site, not the current consulting brochure at [brightleads.ai](https://brightleads.ai). Keep that domain on the old site until you cut over.
 
@@ -44,12 +44,12 @@ Do **not** attach `brightleads.ai` until you are ready to replace the live consu
 
 ## Pages
 
-- `/` Home
-- `/platform` Product
-- `/agencies` Buyer page for placement agents and agencies
-- `/partners` Community / ecosystem
+- `/` Home — one system for the whole placement practice
+- `/platform` Inquiry workspace, community roster, path to move-in
+- `/agencies` Buyer page for agents and agencies
+- `/partners` How agents keep partner homes inside the same system
 - `/demo` Working demo form (empty, loading, error, success)
-- `/contact` Phone, email, San Francisco office
+- `/contact` Phone, email, San Francisco office (not a family directory)
 
 ## Contact (from the current public site)
 

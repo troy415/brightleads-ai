@@ -33,7 +33,7 @@ export function ProductPreview() {
         <span className="size-2.5 rounded-full bg-[#febc2e]" />
         <span className="size-2.5 rounded-full bg-[#28c840]" />
         <p className="ml-3 text-xs tracking-wide text-white/50">
-          BrightLeads.AI · Agency workspace
+          BrightLeads.AI · Placement workspace
         </p>
       </div>
       <div className="grid gap-px bg-white/10 lg:grid-cols-[1.2fr_0.9fr]">

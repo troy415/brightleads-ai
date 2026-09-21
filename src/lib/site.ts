@@ -1,8 +1,8 @@
 export const site = {
   name: "BrightLeads.AI",
-  tagline: "The operating system for senior living placement.",
+  tagline: "Do all of your placement work in one place.",
   description:
-    "BrightLeads.AI helps placement agents and agencies manage family inquiries, community relationships, and a partner ecosystem — so referrals move, and nothing slips.",
+    "BrightLeads.AI is the professional system for senior assisted living placement agents and agencies. Run the full placement practice from one workspace, streamline operations, and get more seniors into assisted living — more efficiently.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://brightleads.ai",
   phone: "(415) 741-2648",
   phoneHref: "tel:+14157412648",
