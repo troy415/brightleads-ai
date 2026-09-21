@@ -8,7 +8,7 @@ export function SiteFooter() {
     <footer className="border-t border-border bg-navy text-primary-foreground">
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-2">
-          <Logo onDark />
+          <Logo />
           <p className="mt-4 max-w-sm text-sm leading-6 text-primary-foreground/70">
             The professional system for senior assisted living placement agents
             and agencies — all of the placement work, in one place.
@@ -20,22 +20,22 @@ export function SiteFooter() {
           </p>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <Link href="/platform" className="hover:text-teal-soft">
+              <Link href="/platform" className="hover:text-teal">
                 Platform
               </Link>
             </li>
             <li>
-              <Link href="/agencies" className="hover:text-teal-soft">
+              <Link href="/agencies" className="hover:text-teal">
                 For agencies
               </Link>
             </li>
             <li>
-              <Link href="/partners" className="hover:text-teal-soft">
+              <Link href="/partners" className="hover:text-teal">
                 Partners
               </Link>
             </li>
             <li>
-              <Link href="/demo" className="hover:text-teal-soft">
+              <Link href="/demo" className="hover:text-teal">
                 Request a demo
               </Link>
             </li>
@@ -47,14 +47,14 @@ export function SiteFooter() {
           </p>
           <ul className="mt-4 space-y-2 text-sm text-primary-foreground/80">
             <li>
-              <a href={site.phoneHref} className="hover:text-teal-soft">
+              <a href={site.phoneHref} className="hover:text-teal">
                 {site.phone}
               </a>
             </li>
             <li>
               <a
                 href={`mailto:${site.email}`}
-                className="hover:text-teal-soft"
+                className="hover:text-teal"
               >
                 {site.email}
               </a>

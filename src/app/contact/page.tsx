@@ -17,7 +17,7 @@ export default function ContactPage() {
       <p className="text-xs font-semibold tracking-[0.18em] text-teal uppercase">
         Contact
       </p>
-      <h1 className="mt-3 max-w-2xl font-heading text-4xl text-navy sm:text-5xl">
+      <h1 className="mt-3 max-w-2xl font-heading text-4xl text-foreground sm:text-5xl">
         San Francisco office. Nationwide conversations with agents.
       </h1>
       <p className="mt-5 max-w-xl text-base leading-7 text-muted-foreground">
@@ -33,7 +33,7 @@ export default function ContactPage() {
           </p>
           <a
             href={site.phoneHref}
-            className="mt-3 block text-lg font-medium text-navy"
+            className="mt-3 block text-lg font-medium text-foreground"
           >
             {site.phone}
           </a>
@@ -47,7 +47,7 @@ export default function ContactPage() {
           </p>
           <a
             href={`mailto:${site.email}`}
-            className="mt-3 block text-lg font-medium text-navy"
+            className="mt-3 block text-lg font-medium text-foreground"
           >
             {site.email}
           </a>
@@ -59,7 +59,7 @@ export default function ContactPage() {
           <p className="text-xs font-semibold tracking-[0.16em] text-gold uppercase">
             Office
           </p>
-          <p className="mt-3 text-lg font-medium text-navy">
+          <p className="mt-3 text-lg font-medium text-foreground">
             {site.addressLine}
             <br />
             {site.cityLine}

@@ -9,21 +9,21 @@ import {
 
 import { ProductPreview } from "@/components/product-preview";
 import { buttonVariants } from "@/components/ui/button";
-import { site } from "@/lib/site";
 import { cn } from "cn";
 
 export default function HomePage() {
   return (
     <>
       <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_circle_at_80%_-10%,#d7eeec,transparent_55%)]" />
+        <div className="pointer-events-none absolute inset-0 glow-sky" />
         <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
           <div>
             <p className="text-xs font-semibold tracking-[0.18em] text-teal uppercase">
               For placement agents and agencies
             </p>
-            <h1 className="mt-4 max-w-xl font-heading text-4xl leading-[1.12] text-navy sm:text-5xl lg:text-[3.4rem]">
-              {site.tagline}
+            <h1 className="mt-4 max-w-xl font-heading text-4xl leading-[1.12] font-extrabold text-foreground sm:text-5xl lg:text-[3.4rem]">
+              Do all of your placement work{" "}
+              <span className="text-gradient">in one place.</span>
             </h1>
             <p className="mt-6 max-w-lg text-base leading-7 text-muted-foreground sm:text-lg">
               BrightLeads.AI is the professional system for senior assisted
@@ -93,7 +93,7 @@ export default function HomePage() {
         <p className="text-xs font-semibold tracking-[0.18em] text-teal uppercase">
           Inside the system
         </p>
-        <h2 className="mt-3 max-w-2xl font-heading text-3xl text-navy sm:text-4xl">
+        <h2 className="mt-3 max-w-2xl font-heading text-3xl text-foreground sm:text-4xl">
           Placement work, all in one professional workspace.
         </h2>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -119,7 +119,7 @@ export default function HomePage() {
               className="rounded-2xl border border-border bg-card p-6 shadow-[0_1px_0_rgba(12,27,51,0.04)]"
             >
               <item.icon className="size-5 text-teal" />
-              <h3 className="mt-4 font-heading text-2xl text-navy">
+              <h3 className="mt-4 font-heading text-2xl text-foreground">
                 {item.title}
               </h3>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">
@@ -188,7 +188,7 @@ export default function HomePage() {
             <p className="text-xs font-semibold tracking-[0.16em] text-teal uppercase">
               Independent agents
             </p>
-            <h2 className="mt-3 font-heading text-3xl text-navy">
+            <h2 className="mt-3 font-heading text-3xl text-foreground">
               For agents who still run placement in email.
             </h2>
             <p className="mt-4 text-sm leading-6 text-muted-foreground">
@@ -198,7 +198,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/agencies"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-navy"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground"
             >
               Built for agents <ArrowRight className="size-4" />
             </Link>
@@ -207,7 +207,7 @@ export default function HomePage() {
             <p className="text-xs font-semibold tracking-[0.16em] text-gold uppercase">
               Agencies
             </p>
-            <h2 className="mt-3 font-heading text-3xl text-navy">
+            <h2 className="mt-3 font-heading text-3xl text-foreground">
               For shops that need the same system across the team.
             </h2>
             <p className="mt-4 text-sm leading-6 text-muted-foreground">
@@ -217,7 +217,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/agencies"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-navy"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground"
             >
               Built for agencies <ArrowRight className="size-4" />
             </Link>
@@ -234,7 +234,7 @@ export default function HomePage() {
                 Professional system, not a brochure
               </span>
             </div>
-            <h2 className="font-heading text-3xl text-navy sm:text-4xl">
+            <h2 className="font-heading text-3xl text-foreground sm:text-4xl">
               Ready to place more seniors from one system?
             </h2>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">

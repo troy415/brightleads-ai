@@ -47,7 +47,7 @@ export default function PlatformPage() {
       <p className="text-xs font-semibold tracking-[0.18em] text-teal uppercase">
         Platform
       </p>
-      <h1 className="mt-3 max-w-3xl font-heading text-4xl text-navy sm:text-5xl">
+      <h1 className="mt-3 max-w-3xl font-heading text-4xl text-foreground sm:text-5xl">
         The professional system for the whole placement practice.
       </h1>
       <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
@@ -61,7 +61,7 @@ export default function PlatformPage() {
             key={mod.title}
             className="rounded-2xl border border-border bg-card p-6"
           >
-            <h2 className="font-heading text-2xl text-navy">{mod.title}</h2>
+            <h2 className="font-heading text-2xl text-foreground">{mod.title}</h2>
             <ul className="mt-5 space-y-3 text-sm leading-6 text-muted-foreground">
               {mod.points.map((point) => (
                 <li key={point} className="relative pl-4">
@@ -84,10 +84,7 @@ export default function PlatformPage() {
         </p>
         <Link
           href="/demo"
-          className={cn(
-            buttonVariants({ size: "lg" }),
-            "mt-6 h-11 bg-primary-foreground px-5 text-navy hover:bg-paper"
-          )}
+          className={cn(buttonVariants({ size: "lg" }), "mt-6 h-11 px-5")}
         >
           Request a demo
           <ArrowRight />

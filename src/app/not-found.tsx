@@ -9,7 +9,7 @@ export default function NotFound() {
       <p className="text-xs font-semibold tracking-[0.18em] text-teal uppercase">
         404
       </p>
-      <h1 className="mt-3 font-heading text-4xl text-navy sm:text-5xl">
+      <h1 className="mt-3 font-heading text-4xl text-foreground sm:text-5xl">
         That page is not on the map.
       </h1>
       <p className="mt-4 text-base text-muted-foreground">

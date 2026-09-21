@@ -16,7 +16,7 @@ export default function DemoPage() {
         <p className="text-xs font-semibold tracking-[0.18em] text-teal uppercase">
           Request a demo
         </p>
-        <h1 className="mt-3 font-heading text-4xl text-navy sm:text-5xl">
+        <h1 className="mt-3 font-heading text-4xl text-foreground sm:text-5xl">
           Bring your pipeline. We’ll map it.
         </h1>
         <p className="mt-5 text-base leading-7 text-muted-foreground">
@@ -29,7 +29,7 @@ export default function DemoPage() {
           <li>Typically 30–40 minutes with someone who knows placement operations.</li>
           <li>
             Call{" "}
-            <a href={site.phoneHref} className="font-medium text-navy underline">
+            <a href={site.phoneHref} className="font-medium text-foreground underline">
               {site.phone}
             </a>{" "}
             if you would rather book live.
@@ -38,7 +38,7 @@ export default function DemoPage() {
             Or email{" "}
             <a
               href={`mailto:${site.email}`}
-              className="font-medium text-navy underline"
+              className="font-medium text-foreground underline"
             >
               {site.email}
             </a>

@@ -32,7 +32,7 @@ export default function PartnersPage() {
       <p className="text-xs font-semibold tracking-[0.18em] text-teal uppercase">
         Partners
       </p>
-      <h1 className="mt-3 max-w-3xl font-heading text-4xl text-navy sm:text-5xl">
+      <h1 className="mt-3 max-w-3xl font-heading text-4xl text-foreground sm:text-5xl">
         Communities you place with, inside the same system.
       </h1>
       <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
@@ -47,7 +47,7 @@ export default function PartnersPage() {
             key={item.title}
             className="rounded-2xl border border-border bg-card p-6"
           >
-            <h2 className="font-heading text-2xl text-navy">{item.title}</h2>
+            <h2 className="font-heading text-2xl text-foreground">{item.title}</h2>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
               {item.copy}
             </p>
@@ -55,7 +55,7 @@ export default function PartnersPage() {
         ))}
       </div>
       <section className="mt-16 rounded-3xl bg-teal-soft/70 px-6 py-10 sm:px-10">
-        <h2 className="font-heading text-3xl text-navy">
+        <h2 className="font-heading text-3xl text-foreground">
           Built for the agent’s side of the relationship
         </h2>
         <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground">

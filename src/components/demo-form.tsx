@@ -59,7 +59,7 @@ export function DemoForm() {
         <p className="text-xs font-semibold tracking-[0.16em] text-teal uppercase">
           Request received
         </p>
-        <h2 className="mt-2 font-heading text-3xl text-navy">
+        <h2 className="mt-2 font-heading text-3xl text-foreground">
           We’ll be in touch shortly.
         </h2>
         <p className="mt-3 text-sm leading-6 text-muted-foreground">
@@ -67,7 +67,7 @@ export function DemoForm() {
           the system you’d use to run placements — inquiries, community roster,
           and the path to move-in.
           If it’s urgent, call us at{" "}
-          <a href="tel:+14157412648" className="font-medium text-navy underline">
+          <a href="tel:+14157412648" className="font-medium text-foreground underline">
             (415) 741-2648
           </a>
           .
