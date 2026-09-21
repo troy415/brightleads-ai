@@ -11,7 +11,7 @@ export function SiteFooter() {
           <Logo className="text-white" />
           <p className="mt-4 max-w-sm text-sm leading-6 text-primary-foreground/70">
             The professional system for senior assisted living placement agents
-            and agencies — all of the placement work, in one place.
+            and agencies: all of the placement work, in one place.
           </p>
         </div>
         <div>

@@ -8,7 +8,7 @@ import { cn } from "cn";
 export const metadata: Metadata = {
   title: "Partners",
   description:
-    "Inside BrightLeads.AI, placement agents keep the communities they place with — openings, care fit, and who to call — in the same system as the inquiry.",
+    "Inside BrightLeads.AI, placement agents keep the communities they place with, including openings, care fit, and who to call, in the same system as the inquiry.",
 };
 
 const benefits = [
@@ -22,7 +22,7 @@ const benefits = [
   },
   {
     title: "Referrals go out with context",
-    copy: "When you send a family to a home, the care picture, decision-makers, and why they are looking travel with the file — so the tour is worth everyone’s time.",
+    copy: "When you send a family to a home, the care picture, decision-makers, and why they are looking travel with the file, so the tour is worth everyone’s time.",
   },
 ];
 
@@ -61,7 +61,7 @@ export default function PartnersPage() {
         <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground">
           Independent agents and agencies use this to manage preferred homes,
           keep inventory honest, and send cleaner referrals. Communities are
-          records you work — this page is not a signup for families or for
+          records you work. This page is not a signup for families or for
           community marketing teams.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">

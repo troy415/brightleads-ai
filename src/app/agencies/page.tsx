@@ -24,7 +24,7 @@ const pains = [
   },
   {
     title: "Community knowledge lives in people’s heads",
-    copy: "Who takes insulin management, who has a ground-floor studio this month, who you actually trust — that cannot sit in one agent’s Notes app if the agency is going to place more people.",
+    copy: "Who takes insulin management, who has a ground-floor studio this month, who you actually trust: none of that can sit in one agent’s Notes app if the agency is going to place more people.",
   },
   {
     title: "Growth stalls at another spreadsheet",
@@ -43,7 +43,7 @@ export default function AgenciesPage() {
       </h1>
       <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
         Placement is still a human job: listening, knowing homes, walking
-        hallways. BrightLeads.AI is the professional system around that craft —
+        hallways. BrightLeads.AI is the professional system around that craft:
         one place to run the work so files move, operations stay clean, and
         more seniors get into assisted living.
       </p>
@@ -68,7 +68,7 @@ export default function AgenciesPage() {
           <p className="mt-4 text-sm leading-6 text-muted-foreground">
             Independent placement agents, family-owned agencies, and regional
             operators across the United States. Families and communities are
-            the work inside the system — they are not the buyers of this site.
+            the work inside the system. They are not the buyers of this site.
           </p>
           <Link
             href="/demo"
@@ -84,7 +84,7 @@ export default function AgenciesPage() {
             <AccordionContent>
               Keep every active senior and every community you use in a
               workspace you can open on a phone between tours. When you bring
-              on help, they inherit the book — not a pile of forwarded emails.
+              on help, they inherit the book, not a pile of forwarded emails.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="agency">

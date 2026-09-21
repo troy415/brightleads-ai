@@ -8,7 +8,7 @@ import { cn } from "cn";
 export const metadata: Metadata = {
   title: "Platform",
   description:
-    "BrightLeads.AI is the professional system where placement agents and agencies run the full assisted living placement practice — inquiries, communities, and the path to move-in.",
+    "BrightLeads.AI is the professional system where placement agents and agencies run the full assisted living placement practice: inquiries, communities, and the path to move-in.",
 };
 
 const modules = [
@@ -25,7 +25,7 @@ const modules = [
     title: "Your community roster",
     points: [
       "The assisted living, memory care, and residential care homes you place with.",
-      "Openings, waitlists, and care-level fit attached to the community — not buried in a text thread.",
+      "Openings, waitlists, and care-level fit attached to the community, not buried in a text thread.",
       "Who to call when a family is ready this week, and on what terms.",
       "History of which homes you have placed with, and which still owe you a tour slot.",
     ],
@@ -35,7 +35,7 @@ const modules = [
     points: [
       "Tours, updates, and community feedback on the same inquiry you already opened.",
       "A clear next step so files do not stall between the second tour and the application.",
-      "A complete close when the senior moves in — ready for the next placement.",
+      "A complete close when the senior moves in, ready for the next placement.",
       "The point of the system: more seniors into assisted living, with less operational drag.",
     ],
   },

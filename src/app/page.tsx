@@ -28,7 +28,7 @@ export default function HomePage() {
             <p className="mt-6 max-w-lg text-base leading-7 text-muted-foreground sm:text-lg">
               BrightLeads.AI is the professional system for senior assisted
               living placement. Agents and agencies run every inquiry, tour,
-              community relationship, and follow-up from one workspace — so
+              community relationship, and follow-up from one workspace, so
               operations stay tight and more seniors move in.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -66,7 +66,7 @@ export default function HomePage() {
           {[
             {
               label: "One system",
-              copy: "The whole placement practice lives in one workspace — not across inboxes, notes, and a spreadsheet you dread opening.",
+              copy: "The whole placement practice lives in one workspace, not scattered across inboxes, notes, and a spreadsheet you dread opening.",
             },
             {
               label: "Tighter operations",
@@ -101,7 +101,7 @@ export default function HomePage() {
             {
               icon: ClipboardList,
               title: "Inquiries you take",
-              copy: "Seniors and families are files you work — not a second product. Capture the call, qualify care needs, budget, geography, and urgency, then keep follow-up on a clock.",
+              copy: "Seniors and families are files you work, not a second product. Capture the call, qualify care needs, budget, geography, and urgency, then keep follow-up on a clock.",
             },
             {
               icon: Building2,
@@ -137,7 +137,7 @@ export default function HomePage() {
               How agents run it
             </p>
             <h2 className="mt-3 font-heading text-3xl sm:text-4xl">
-              First call to a placed resident — without leaving the system.
+              From first call to a placed resident, without leaving the system.
             </h2>
             <p className="mt-4 text-sm leading-6 text-primary-foreground/70">
               BrightLeads.AI is not a marketing funnel and not a family-facing
@@ -165,7 +165,7 @@ export default function HomePage() {
               {
                 n: "04",
                 title: "Close and keep moving",
-                copy: "When a senior moves in, the file is complete — and the next inquiry is already in motion.",
+                copy: "When a senior moves in, the file is complete, and the next inquiry is already in motion.",
               },
             ].map((step) => (
               <li key={step.n} className="flex gap-4 border-t border-white/10 pt-6">
@@ -194,7 +194,7 @@ export default function HomePage() {
             <p className="mt-4 text-sm leading-6 text-muted-foreground">
               One workspace for every active senior, every community you use,
               and every tour on the calendar. When you bring on help, they
-              inherit the book — not a pile of forwarded threads.
+              inherit the book, not a pile of forwarded threads.
             </p>
             <Link
               href="/agencies"
@@ -238,8 +238,8 @@ export default function HomePage() {
               Ready to place more seniors from one system?
             </h2>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              We’ll walk your placement workflow — inquiries, community roster,
-              and the path to move-in — against the way you work today.
+              We’ll map inquiries, community roster, and the path to move-in
+              against the way you work today.
             </p>
           </div>
           <Link

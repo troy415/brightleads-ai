@@ -8,7 +8,7 @@ import { cn } from "cn";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact BrightLeads.AI in San Francisco — phone, email, and office for placement agents and agencies.",
+    "Contact BrightLeads.AI in San Francisco: phone, email, and office for placement agents and agencies.",
 };
 
 export default function ContactPage() {
@@ -23,7 +23,7 @@ export default function ContactPage() {
       <p className="mt-5 max-w-xl text-base leading-7 text-muted-foreground">
         This is for placement agents and agencies who want to run the practice
         on BrightLeads.AI. If you are a family looking for a home, call a
-        placement professional in your market — this site is not a consumer
+        placement professional in your market. This site is not a consumer
         directory.
       </p>
       <div className="mt-12 grid gap-6 md:grid-cols-3">

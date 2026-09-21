@@ -1,8 +1,8 @@
-# BrightLeads.AI — marketing site
+# BrightLeads.AI marketing site
 
-Sales site for **BrightLeads.AI**, the professional system for senior assisted living placement agents and agencies. The offer: do all of your placement work from one place, streamline operations, and get more seniors into assisted living more efficiently. Families and communities are work inside the system — they are not the buyers.
+Sales site for **BrightLeads.AI**, the professional system for senior assisted living placement agents and agencies. The offer: do all of your placement work from one place, streamline operations, and get more seniors into assisted living more efficiently. Families and communities are work inside the system. They are not the buyers.
 
-White marketing page (`#ffffff`) with BrightBridge app color pop (sky `#0ea5e9`, indigo `#6366f1`, purple `#8b5cf6`). Dark navy is reserved for the product mock and the footer.
+White marketing page (`#ffffff`) with BrightBridge app color pop (sky `#0ea5e9`, indigo `#6366f1`, purple `#8b5cf6`). Dark navy is reserved for the product mock and the footer. Headlines use **Inter** at heavy weights (same face as body) so large titles stay easy to read.
 
 Stack matches a modern app scaffold (Next.js, TypeScript, Tailwind, shadcn/ui) and the same GitHub → Netlify pattern as the other Desktop sites.
 
@@ -44,7 +44,7 @@ Production domain: `brightleads.ai` / `www.brightleads.ai` on the Bright Leads D
 
 ## Pages
 
-- `/` Home — one system for the whole placement practice
+- `/` Home: one system for the whole placement practice
 - `/platform` Inquiry workspace, community roster, path to move-in
 - `/agencies` Buyer page for agents and agencies
 - `/partners` How agents keep partner homes inside the same system

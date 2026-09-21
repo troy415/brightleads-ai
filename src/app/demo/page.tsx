@@ -20,7 +20,7 @@ export default function DemoPage() {
           Bring your pipeline. We’ll map it.
         </h1>
         <p className="mt-5 text-base leading-7 text-muted-foreground">
-          Demos are working sessions for placement agents and agencies — not
+          Demos are working sessions for placement agents and agencies, not
           slide decks, and not a pitch to families. Tell us how you take
           inquiries today and which communities you actually use. We’ll show
           that work inside BrightLeads.AI.
