@@ -10,33 +10,34 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <Logo className="text-white" />
           <p className="mt-4 max-w-sm text-sm leading-6 text-primary-foreground/70">
-            The professional system for senior assisted living placement agents
-            and agencies: all of the placement work, in one place.
+            A marketing agency for care homes, senior communities, RCFEs, ARFs,
+            and similar operators. Web design, campaigns, and technical systems
+            that interact to drive leads.
           </p>
         </div>
         <div>
           <p className="text-xs font-semibold tracking-[0.16em] text-gold uppercase">
-            Product
+            Agency
           </p>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <Link href="/platform" className="hover:text-teal">
-                Platform
+              <Link href="/work" className="hover:text-teal">
+                Work
               </Link>
             </li>
             <li>
-              <Link href="/agencies" className="hover:text-teal">
-                For agencies
+              <Link href="/communities" className="hover:text-teal">
+                Communities
               </Link>
             </li>
             <li>
-              <Link href="/partners" className="hover:text-teal">
-                Partners
+              <Link href="/start" className="hover:text-teal">
+                Start a conversation
               </Link>
             </li>
             <li>
-              <Link href="/demo" className="hover:text-teal">
-                Request a demo
+              <Link href="/contact" className="hover:text-teal">
+                Contact
               </Link>
             </li>
           </ul>
@@ -69,8 +70,8 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-white/10">
         <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-primary-foreground/50 sm:px-6">
-          © {new Date().getFullYear()} BrightLeads.AI. Built for placement
-          agents and agencies across the United States.
+          © {new Date().getFullYear()} BrightLeads.AI. Marketing systems for
+          care homes and senior communities.
         </p>
       </div>
     </footer>

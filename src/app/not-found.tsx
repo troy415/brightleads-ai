@@ -13,21 +13,21 @@ export default function NotFound() {
         That page is not on the map.
       </h1>
       <p className="mt-4 text-base text-muted-foreground">
-        The link may be old, or the page has moved. Head back to the product or
-        request a demo.
+        The link may be old, or the page has moved. Head back home or start a
+        conversation.
       </p>
       <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <Link href="/" className={cn(buttonVariants({ size: "lg" }), "h-11 px-5")}>
           Back to home
         </Link>
         <Link
-          href="/demo"
+          href="/start"
           className={cn(
             buttonVariants({ variant: "outline", size: "lg" }),
             "h-11 px-5"
           )}
         >
-          Request a demo
+          Start a conversation
         </Link>
       </div>
     </div>

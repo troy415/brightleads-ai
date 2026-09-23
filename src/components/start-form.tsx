@@ -13,7 +13,7 @@ type Status = "empty" | "loading" | "error" | "success";
 
 const fieldClass = "h-11 bg-card text-base md:text-sm";
 
-export function DemoForm() {
+export function StartForm() {
   const [status, setStatus] = useState<Status>("empty");
   const [error, setError] = useState<string | null>(null);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
@@ -60,13 +60,12 @@ export function DemoForm() {
           Request received
         </p>
         <h2 className="mt-2 font-heading text-3xl text-foreground">
-          We’ll be in touch shortly.
+          We will be in touch shortly.
         </h2>
         <p className="mt-3 text-sm leading-6 text-muted-foreground">
-          A BrightLeads.AI teammate will follow up to schedule a working demo of
-          the system you’d use to run placements: inquiries, community roster,
-          and the path to move-in.
-          If it’s urgent, call us at{" "}
+          A BrightLeads.AI teammate will follow up to talk through your
+          community, the website you have now, and how inquiries reach the
+          team. If it is urgent, call us at{" "}
           <a href="tel:+14157412648" className="font-medium text-foreground underline">
             (415) 741-2648
           </a>
@@ -137,48 +136,48 @@ export function DemoForm() {
       </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <Field
-          id="agency"
-          label="Agency or practice"
-          error={fieldErrors.agency}
+          id="community"
+          label="Community or home"
+          error={fieldErrors.community}
           required
         >
           <Input
-            id="agency"
-            name="agency"
+            id="community"
+            name="community"
             className={fieldClass}
             disabled={status === "loading"}
-            aria-invalid={Boolean(fieldErrors.agency)}
+            aria-invalid={Boolean(fieldErrors.community)}
           />
         </Field>
         <Field id="role" label="Role" error={fieldErrors.role}>
           <Input
             id="role"
             name="role"
-            placeholder="Owner, agent, operations…"
+            placeholder="Owner, administrator, marketing"
             className={fieldClass}
             disabled={status === "loading"}
           />
         </Field>
       </div>
-      <Field id="markets" label="Markets you serve" error={fieldErrors.markets}>
+      <Field id="markets" label="Where you operate" error={fieldErrors.markets}>
         <Input
           id="markets"
           name="markets"
-          placeholder="Bay Area, Dallas–Fort Worth, statewide…"
+          placeholder="City, county, or region"
           className={fieldClass}
           disabled={status === "loading"}
         />
       </Field>
       <Field
         id="message"
-        label="What should we walk through?"
+        label="What should we talk through?"
         error={fieldErrors.message}
       >
         <Textarea
           id="message"
           name="message"
           rows={4}
-          placeholder="Inquiry volume, community roster, current tools, or a specific bottleneck."
+          placeholder="Website, campaigns, occupancy, how inquiries reach the team."
           className="min-h-28 bg-card"
           disabled={status === "loading"}
         />
@@ -192,15 +191,15 @@ export function DemoForm() {
         {status === "loading" ? (
           <>
             <Loader2 className="animate-spin" />
-            Sending request…
+            Sending request...
           </>
         ) : (
-          "Request a working demo"
+          "Start a conversation"
         )}
       </Button>
       <p className="text-xs leading-5 text-muted-foreground">
-        We’ll only use this to schedule your demo. No newsletter, no shared
-        lists.
+        We will only use this to follow up about your community. No newsletter,
+        no shared lists.
       </p>
     </form>
   );

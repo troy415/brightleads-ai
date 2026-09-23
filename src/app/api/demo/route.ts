@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 
-type DemoBody = {
+type InquiryBody = {
   name?: string;
   email?: string;
+  community?: string;
   agency?: string;
   role?: string;
   markets?: string;
@@ -15,10 +16,10 @@ function asString(value: unknown) {
 }
 
 export async function POST(request: Request) {
-  let body: DemoBody;
+  let body: InquiryBody;
 
   try {
-    body = (await request.json()) as DemoBody;
+    body = (await request.json()) as InquiryBody;
   } catch {
     return NextResponse.json(
       { error: "Send the form as JSON so we can read it." },
@@ -32,7 +33,7 @@ export async function POST(request: Request) {
 
   const name = asString(body.name);
   const email = asString(body.email);
-  const agency = asString(body.agency);
+  const community = asString(body.community) || asString(body.agency);
   const role = asString(body.role);
   const markets = asString(body.markets);
   const message = asString(body.message);
@@ -42,7 +43,7 @@ export async function POST(request: Request) {
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     fields.email = "Use a valid work email.";
   }
-  if (!agency) fields.agency = "Add the agency or practice name.";
+  if (!community) fields.community = "Add the community or home name.";
 
   if (Object.keys(fields).length > 0) {
     return NextResponse.json(
@@ -54,7 +55,7 @@ export async function POST(request: Request) {
   const payload = {
     name,
     email,
-    agency,
+    community,
     role,
     markets,
     message,
@@ -90,6 +91,6 @@ export async function POST(request: Request) {
     }
   }
 
-  console.info("Demo request", payload);
+  console.info("Inquiry request", payload);
   return NextResponse.json({ ok: true });
 }

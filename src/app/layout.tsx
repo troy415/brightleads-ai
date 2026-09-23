@@ -20,12 +20,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "BrightLeads.AI: Professional system for placement agents",
+    default: "BrightLeads.AI: Marketing for care homes and senior communities",
     template: "%s · BrightLeads.AI",
   },
   description: site.description,
   openGraph: {
-    title: "BrightLeads.AI: Professional system for placement agents",
+    title: "BrightLeads.AI: Marketing for care homes and senior communities",
     description: site.description,
     type: "website",
   },

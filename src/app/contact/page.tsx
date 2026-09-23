@@ -8,7 +8,7 @@ import { cn } from "cn";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact BrightLeads.AI in San Francisco: phone, email, and office for placement agents and agencies.",
+    "Contact BrightLeads.AI in San Francisco: phone, email, and office for care homes, senior communities, RCFEs, and ARFs.",
 };
 
 export default function ContactPage() {
@@ -18,13 +18,13 @@ export default function ContactPage() {
         Contact
       </p>
       <h1 className="mt-3 max-w-2xl font-heading text-4xl text-foreground sm:text-5xl">
-        San Francisco office. Nationwide conversations with agents.
+        San Francisco office. Conversations with operators.
       </h1>
       <p className="mt-5 max-w-xl text-base leading-7 text-muted-foreground">
-        This is for placement agents and agencies who want to run the practice
-        on BrightLeads.AI. If you are a family looking for a home, call a
-        placement professional in your market. This site is not a consumer
-        directory.
+        This is for care homes, senior communities, RCFEs, ARFs, and similar
+        operators who want a marketing system that finds residents. If you are
+        a family looking for a home, call a community in your market. This
+        site is not a consumer directory.
       </p>
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         <article className="rounded-2xl border border-border bg-card p-6">
@@ -52,7 +52,7 @@ export default function ContactPage() {
             {site.email}
           </a>
           <p className="mt-2 text-sm text-muted-foreground">
-            Demos and agency conversations.
+            Community and operator conversations.
           </p>
         </article>
         <article className="rounded-2xl border border-border bg-card p-6">
@@ -67,10 +67,10 @@ export default function ContactPage() {
         </article>
       </div>
       <Link
-        href="/demo"
+        href="/start"
         className={cn(buttonVariants({ size: "lg" }), "mt-10 h-11 px-5")}
       >
-        Prefer a structured demo? Request one
+        Prefer a structured conversation? Start here
       </Link>
     </div>
   );

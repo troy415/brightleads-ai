@@ -37,10 +37,10 @@ export function SiteHeader() {
         </nav>
         <div className="hidden md:block">
           <Link
-            href="/demo"
+            href="/start"
             className={cn(buttonVariants({ size: "lg" }), "h-10 px-4")}
           >
-            Request a demo
+            Start a conversation
           </Link>
         </div>
         <Button
@@ -71,14 +71,14 @@ export function SiteHeader() {
               </Link>
             ))}
             <Link
-              href="/demo"
+              href="/start"
               onClick={() => setOpen(false)}
               className={cn(
                 buttonVariants({ size: "lg" }),
                 "mt-4 h-11 justify-center"
               )}
             >
-              Request a demo
+              Start a conversation
             </Link>
           </nav>
         </SheetContent>

@@ -1,8 +1,8 @@
 # BrightLeads.AI marketing site
 
-Sales site for **BrightLeads.AI**, the professional system for senior assisted living placement agents and agencies. The offer: do all of your placement work from one place, streamline operations, and get more seniors into assisted living more efficiently. Families and communities are work inside the system. They are not the buyers.
+Sales site for **BrightLeads.AI**, a marketing agency for care homes, senior communities, RCFEs, ARFs, and similar operators. The offer: build systems where web design, marketing campaigns, and technical systems interact to drive leads. Buyers are communities and operators. Families are the residents those homes want, not the customer of this site.
 
-White marketing page (`#ffffff`) with BrightBridge app color pop (sky `#0ea5e9`, indigo `#6366f1`, purple `#8b5cf6`). Dark navy is reserved for the product mock and the footer. Headlines use **Inter** at heavy weights (same face as body) so large titles stay easy to read.
+White marketing page (`#ffffff`) with BrightBridge app color pop (sky `#0ea5e9`, indigo `#6366f1`, purple `#8b5cf6`). Dark navy is reserved for the product mock and the footer. Headlines use **Inter** at heavy weights (same face as body).
 
 Stack matches a modern app scaffold (Next.js, TypeScript, Tailwind, shadcn/ui) and the same GitHub → Netlify pattern as the other Desktop sites.
 
@@ -31,7 +31,7 @@ Copy `.env.example` to `.env.local`. Nothing is required to run locally.
 | Variable | Purpose |
 |---|---|
 | `NEXT_PUBLIC_SITE_URL` | Canonical URL for metadata and sitemap |
-| `DEMO_WEBHOOK_URL` | Optional. If set, demo requests POST JSON here (Make, Zapier, n8n, or your inbox bridge). If unset, the form still succeeds and logs on the server. |
+| `DEMO_WEBHOOK_URL` | Optional. If set, inquiry form requests POST JSON here (Make, Zapier, n8n, or your inbox bridge). If unset, the form still succeeds and logs on the server. |
 
 ## Deploy (same pattern as the other Desktop sites)
 
@@ -44,12 +44,13 @@ Production domain: `brightleads.ai` / `www.brightleads.ai` on the Bright Leads D
 
 ## Pages
 
-- `/` Home: one system for the whole placement practice
-- `/platform` Inquiry workspace, community roster, path to move-in
-- `/agencies` Buyer page for agents and agencies
-- `/partners` How agents keep partner homes inside the same system
-- `/demo` Working demo form (empty, loading, error, success)
+- `/` Home: agency offer for operators; web, campaigns, and systems
+- `/work` What we build and how the pieces interact
+- `/communities` Buyer page for care homes, senior communities, RCFEs, and ARFs
+- `/start` Conversation form (empty, loading, error, success)
 - `/contact` Phone, email, San Francisco office (not a family directory)
+
+Old routes redirect: `/platform` → `/work`, `/agencies` and `/partners` → `/communities`, `/demo` → `/start`.
 
 ## Contact (from the current public site)
 

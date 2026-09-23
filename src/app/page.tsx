@@ -1,9 +1,9 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  Building2,
-  ClipboardList,
-  Route,
+  Globe,
+  Megaphone,
+  Settings2,
   ShieldCheck,
 } from "lucide-react";
 
@@ -19,42 +19,43 @@ export default function HomePage() {
         <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
           <div>
             <p className="text-xs font-semibold tracking-[0.18em] text-teal uppercase">
-              For placement agents and agencies
+              For care homes and senior communities
             </p>
             <h1 className="mt-4 max-w-xl font-heading text-4xl leading-[1.12] font-extrabold text-foreground sm:text-5xl lg:text-[3.4rem]">
-              Do all of your placement work{" "}
-              <span className="text-gradient">in one place.</span>
+              Find residents with a system that{" "}
+              <span className="text-gradient">works together.</span>
             </h1>
             <p className="mt-6 max-w-lg text-base leading-7 text-muted-foreground sm:text-lg">
-              BrightLeads.AI is the professional system for senior assisted
-              living placement. Agents and agencies run every inquiry, tour,
-              community relationship, and follow-up from one workspace, so
-              operations stay tight and more seniors move in.
+              BrightLeads.AI is a marketing agency for care homes, senior
+              communities, RCFEs, ARFs, and similar operators. We build systems
+              where web design, marketing campaigns, and technical systems
+              interact to drive leads. Families are the residents you want.
+              They are not the customer of this site.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/demo"
+                href="/start"
                 className={cn(
                   buttonVariants({ size: "lg" }),
                   "h-12 px-6 text-sm"
                 )}
               >
-                Request a demo
+                Start a conversation
                 <ArrowRight />
               </Link>
               <Link
-                href="/platform"
+                href="/work"
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
                   "h-12 px-6 text-sm"
                 )}
               >
-                See the platform
+                See the work
               </Link>
             </div>
             <p className="mt-6 text-sm text-muted-foreground">
-              Built in San Francisco. Sold to placement agents and agencies
-              throughout the United States.
+              Built in San Francisco. Made for operators who need occupancy,
+              not another disconnected vendor.
             </p>
           </div>
           <ProductPreview />
@@ -65,16 +66,16 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-3 sm:px-6">
           {[
             {
-              label: "One system",
-              copy: "The whole placement practice lives in one workspace, not scattered across inboxes, notes, and a spreadsheet you dread opening.",
+              label: "Web design",
+              copy: "A site families can actually inquire from, written for your care type, rooms, and neighborhood, not a template that could belong to anyone.",
             },
             {
-              label: "Tighter operations",
-              copy: "Every senior has a next step. Every community you use is current. Nothing waits on a voicemail you forgot to return.",
+              label: "Campaigns",
+              copy: "Search, ads, and outreach that send people to a page that converts, instead of dumping traffic on a brochure that goes nowhere.",
             },
             {
-              label: "More move-ins",
-              copy: "Match faster, tour with intent, and close more assisted living placements with the same hours in the day.",
+              label: "Technical systems",
+              copy: "Forms, routing, tracking, and follow-up so a lead reaches your team instead of dying in an inbox nobody checks.",
             },
           ].map((item) => (
             <div key={item.label}>
@@ -91,27 +92,27 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <p className="text-xs font-semibold tracking-[0.18em] text-teal uppercase">
-          Inside the system
+          How the pieces connect
         </p>
         <h2 className="mt-3 max-w-2xl font-heading text-3xl text-foreground sm:text-4xl">
-          Placement work, all in one professional workspace.
+          Leads come from the interaction, not from one tactic in isolation.
         </h2>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {[
             {
-              icon: ClipboardList,
-              title: "Inquiries you take",
-              copy: "Seniors and families are files you work, not a second product. Capture the call, qualify care needs, budget, geography, and urgency, then keep follow-up on a clock.",
+              icon: Globe,
+              title: "The website has a job",
+              copy: "It has to explain the community, answer the questions families actually ask, and capture an inquiry. Pretty pages that cannot take a lead do not fill rooms.",
             },
             {
-              icon: Building2,
-              title: "Communities you place with",
-              copy: "Your roster of assisted living, memory care, and residential care homes sits next to the inquiry. Openings, care fit, and who to call are part of the placement, not a separate CRM.",
+              icon: Megaphone,
+              title: "Campaigns feed that site",
+              copy: "Paid and organic work only pays off if the destination matches the search. We send people to the right page for memory care, respite, or a specific community, not a generic homepage.",
             },
             {
-              icon: Route,
-              title: "The path to move-in",
-              copy: "Tours, notes, family updates, applications, and close-out live on the same record. The job is to get more seniors into the right community, without dropping the file.",
+              icon: Settings2,
+              title: "Systems keep the lead alive",
+              copy: "When someone inquires, the form, notification, and follow-up have to fire. We wire the technical layer so marketing and operations see the same lead.",
             },
           ].map((item) => (
             <article
@@ -134,38 +135,37 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2">
           <div>
             <p className="text-xs font-semibold tracking-[0.18em] text-gold uppercase">
-              How agents run it
+              How we work with operators
             </p>
             <h2 className="mt-3 font-heading text-3xl sm:text-4xl">
-              From first call to a placed resident, without leaving the system.
+              From occupancy pressure to a system that can take a lead.
             </h2>
             <p className="mt-4 text-sm leading-6 text-primary-foreground/70">
-              BrightLeads.AI is not a marketing funnel and not a family-facing
-              directory. It is the professional work of placement, start to
-              finish.
+              This is not a family directory and not a placement-agent product.
+              It is marketing built for the people who run the home.
             </p>
           </div>
           <ol className="space-y-6">
             {[
               {
                 n: "01",
-                title: "Intake the inquiry",
-                copy: "Log the senior, the family decision-makers, care needs, and how they reached you. Nothing sits in voicemail.",
+                title: "Start with who you want",
+                copy: "Care type, rooms, neighborhood, and the families you can actually serve. Occupancy is the goal. Vanity traffic is not.",
               },
               {
                 n: "02",
-                title: "Match from your book",
-                copy: "Work the communities you already know. See openings and care fit before you burn a tour.",
+                title: "Build the website around inquiry",
+                copy: "Copy, layout, and forms that match how families search for a community, an RCFE, or an ARF.",
               },
               {
                 n: "03",
-                title: "Coordinate the placement",
-                copy: "Tours, notes, updates, and community feedback stay on the same file so the next step is obvious.",
+                title: "Run campaigns into that site",
+                copy: "Search and ads that land on the right page, with tracking that tells you what produced a real inquiry.",
               },
               {
                 n: "04",
-                title: "Close and keep moving",
-                copy: "When a senior moves in, the file is complete, and the next inquiry is already in motion.",
+                title: "Wire follow-up so nothing sits",
+                copy: "The technical system routes the lead to your team and keeps the next step visible.",
               },
             ].map((step) => (
               <li key={step.n} className="flex gap-4 border-t border-white/10 pt-6">
@@ -186,40 +186,40 @@ export default function HomePage() {
         <div className="grid gap-10 lg:grid-cols-2">
           <article className="rounded-3xl border border-teal/20 bg-teal-soft p-8 sm:p-10">
             <p className="text-xs font-semibold tracking-[0.16em] text-teal uppercase">
-              Independent agents
+              Care homes and RCFEs
             </p>
             <h2 className="mt-3 font-heading text-3xl text-foreground">
-              For agents who still run placement in email.
+              For homes that need the right families to find them.
             </h2>
             <p className="mt-4 text-sm leading-6 text-muted-foreground">
-              One workspace for every active senior, every community you use,
-              and every tour on the calendar. When you bring on help, they
-              inherit the book, not a pile of forwarded threads.
+              Residential care, board and care, and RCFEs often lose inquiries
+              to a weak website or a campaign that never reaches a real form.
+              We build the path from search to a conversation with your staff.
             </p>
             <Link
-              href="/agencies"
+              href="/communities"
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground"
             >
-              Built for agents <ArrowRight className="size-4" />
+              Built for operators <ArrowRight className="size-4" />
             </Link>
           </article>
           <article className="rounded-3xl border border-border bg-white p-8 sm:p-10">
             <p className="text-xs font-semibold tracking-[0.16em] text-gold uppercase">
-              Agencies
+              Communities and ARFs
             </p>
             <h2 className="mt-3 font-heading text-3xl text-foreground">
-              For shops that need the same system across the team.
+              For communities that cannot live on walk-ins and word of mouth.
             </h2>
             <p className="mt-4 text-sm leading-6 text-muted-foreground">
-              Assign inquiries, see who is touring this week, and stop
-              competing with yourselves for the same community slot. Leadership
-              gets the pipeline without a Friday status hunt.
+              Senior communities and adult residential facilities need a
+              repeatable way to show up when families search. Website,
+              campaigns, and follow-up have to work as one system.
             </p>
             <Link
-              href="/agencies"
+              href="/communities"
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground"
             >
-              Built for agencies <ArrowRight className="size-4" />
+              See who we work with <ArrowRight className="size-4" />
             </Link>
           </article>
         </div>
@@ -231,22 +231,23 @@ export default function HomePage() {
             <div className="mb-3 flex items-center gap-2 text-teal">
               <ShieldCheck className="size-4" />
               <span className="text-xs font-semibold tracking-[0.16em] uppercase">
-                Professional system, not a brochure
+                Agency work, not a brochure
               </span>
             </div>
             <h2 className="font-heading text-3xl text-foreground sm:text-4xl">
-              Ready to place more seniors from one system?
+              Ready to talk about occupancy and leads?
             </h2>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              We’ll map inquiries, community roster, and the path to move-in
-              against the way you work today.
+              Tell us about the community, the website you have now, and how
+              inquiries reach the team. We will map a system that can take a
+              lead.
             </p>
           </div>
           <Link
-            href="/demo"
+            href="/start"
             className={cn(buttonVariants({ size: "lg" }), "h-12 px-6")}
           >
-            Book a demo
+            Talk with us
             <ArrowRight />
           </Link>
         </div>

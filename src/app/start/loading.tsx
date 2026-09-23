@@ -1,4 +1,4 @@
-export default function DemoLoading() {
+export default function StartLoading() {
   return (
     <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:py-20">
       <div className="space-y-4">

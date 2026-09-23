@@ -1,8 +1,8 @@
 export function ProductPreview() {
-  const inquiries = [
-    { family: "Margaret Chen", need: "Memory care · Today", stage: "Urgent" },
-    { family: "Patel / daughter", need: "Assisted living · Walnut Creek", stage: "New" },
-    { family: "Robert Harris", need: "Board & care · SF", stage: "Touring" },
+  const leads = [
+    { source: "Website form", need: "Memory care inquiry", stage: "New" },
+    { source: "Search campaign", need: "Assisted living · this week", stage: "Hot" },
+    { source: "Community page", need: "Respite stay · family visit", stage: "Tour" },
   ];
 
   return (
@@ -16,18 +16,18 @@ export function ProductPreview() {
                 BrightLeads.AI
               </p>
               <p className="mt-0.5 text-[9px] tracking-wide text-[#8b9cc8] uppercase">
-                Placement
+                Campaigns
               </p>
             </div>
           </div>
           <p className="px-2 pb-1 text-[9px] font-semibold tracking-[0.12em] text-[#4a5a7a] uppercase">
-            Workspace
+            System
           </p>
           <div className="space-y-0.5 text-[12px]">
             <div className="rounded-[7px] border border-sky-400/20 bg-gradient-to-r from-sky-400/15 to-indigo-500/15 px-2.5 py-2 font-medium text-sky-400">
               Dashboard
             </div>
-            {["Pipeline", "Clients", "Communities"].map((item) => (
+            {["Campaigns", "Website", "Leads"].map((item) => (
               <div
                 key={item}
                 className="rounded-[7px] px-2.5 py-2 text-[#8b9cc8]"
@@ -42,23 +42,23 @@ export function ProductPreview() {
             <p className="text-[13px] font-medium">Dashboard</p>
             <div className="ml-auto hidden items-center gap-2 sm:flex">
               <span className="rounded-full border border-sky-400/30 bg-sky-400/10 px-2 py-0.5 text-[10px] font-semibold text-sky-400">
-                Advisor
+                Operator
               </span>
               <span className="rounded-lg bg-gradient-to-r from-sky-400 to-indigo-500 px-2.5 py-1 text-[11px] font-semibold text-white">
-                + New lead
+                + New campaign
               </span>
             </div>
           </div>
           <div className="p-4">
-            <p className="font-heading text-lg font-bold">Today’s pipeline</p>
+            <p className="font-heading text-lg font-bold">Today&apos;s leads</p>
             <p className="text-[11px] text-[#4a5a7a]">
-              Your leads · Your communities
+              Website · Campaigns · Follow-up
             </p>
             <div className="mt-3 grid grid-cols-3 gap-2">
               {[
-                { n: "12", l: "Open inquiries", c: "text-sky-400" },
-                { n: "5", l: "Tours this week", c: "text-amber-400" },
-                { n: "17", l: "Communities", c: "text-emerald-400" },
+                { n: "18", l: "New inquiries", c: "text-sky-400" },
+                { n: "3", l: "Live campaigns", c: "text-amber-400" },
+                { n: "6", l: "Tour requests", c: "text-emerald-400" },
               ].map((stat) => (
                 <div
                   key={stat.l}
@@ -73,22 +73,22 @@ export function ProductPreview() {
             </div>
             <div className="mt-3 rounded-[10px] border border-[#1e2d4a]">
               <div className="flex items-center justify-between border-b border-[#1e2d4a] px-3 py-2">
-                <p className="text-[12px] font-semibold">My priority queue</p>
-                <span className="text-[10px] text-sky-400">All leads</span>
+                <p className="text-[12px] font-semibold">Inbound queue</p>
+                <span className="text-[10px] text-sky-400">All sources</span>
               </div>
               <div className="divide-y divide-[#1e2d4a]">
-                {inquiries.map((row) => (
+                {leads.map((row) => (
                   <div
-                    key={row.family}
+                    key={row.source}
                     className="flex items-center justify-between gap-3 px-3 py-2.5"
                   >
                     <div>
-                      <p className="text-[13px] font-medium">{row.family}</p>
+                      <p className="text-[13px] font-medium">{row.source}</p>
                       <p className="text-[11px] text-[#8b9cc8]">{row.need}</p>
                     </div>
                     <span
                       className={`rounded-full border px-2 py-0.5 text-[9px] font-bold tracking-wide uppercase ${
-                        row.stage === "Urgent"
+                        row.stage === "Hot"
                           ? "border-red-500/30 bg-red-500/15 text-red-400"
                           : row.stage === "New"
                             ? "border-amber-400/30 bg-amber-400/15 text-amber-400"
