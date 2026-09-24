@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { PageHero, Section } from "@/components/chrome";
+import { Arrow } from "@/components/icons";
 
 export default function NotFound() {
   return (
@@ -10,16 +11,17 @@ export default function NotFound() {
           ["Home", ""],
           ["Not found", ""],
         ]}
+        eyebrow="404"
         h1="We could not find that page."
-        lead="Try the services overview, the FAQ, or start a conversation."
+        lead="Try the services overview, or start a conversation for a free AI visibility check."
       />
       <Section>
         <div className="btns">
-          <Link className="btn btn-brand" href="/services">
-            See services
+          <Link className="btn btn-brand" href="/start">
+            Get a free AI visibility check <Arrow />
           </Link>
-          <Link className="btn btn-ghost" href="/faq">
-            Read the FAQ
+          <Link className="btn btn-ghost" href="/services">
+            See all services
           </Link>
         </div>
       </Section>

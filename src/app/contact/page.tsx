@@ -70,8 +70,11 @@ export default function ContactPage() {
         </div>
         <div className="btns" style={{ marginTop: "2rem" }}>
           <Link className="btn btn-brand" href="/start">
-            Request a free AI visibility check <Arrow />
+            Get a free AI visibility check <Arrow />
           </Link>
+          <a className="btn btn-ghost" href={site.phoneHref}>
+            Call {site.phone}
+          </a>
         </div>
       </Section>
     </>

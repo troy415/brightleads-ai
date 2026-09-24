@@ -6,7 +6,7 @@ import { pageMeta, site } from "@/lib/site";
 
 const TITLE = "Start a Conversation & Free AI Visibility Check | BrightLeads.AI";
 const DESCRIPTION =
-  "Request a free AI visibility check for your senior living community and start a conversation with BrightLeads.AI about occupancy, leads, and marketing.";
+  "Get a free AI visibility check for your senior living community and start a conversation with BrightLeads.AI about occupancy, leads, and marketing.";
 
 export const metadata = pageMeta({
   title: TITLE,

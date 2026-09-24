@@ -4,11 +4,30 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { Logo } from "@/components/logo";
-import { AUDIENCES, NAV, SERVICES } from "@/lib/catalog";
+import { AUDIENCES, NAV, SERVICES, type NavItem } from "@/lib/catalog";
 
 function current(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+function DropdownLinks({
+  items,
+  pathname,
+}: {
+  items: NavItem[];
+  pathname: string;
+}) {
+  return items.map((item) => (
+    <Link
+      key={item.href}
+      href={item.href}
+      aria-current={pathname === item.href ? "page" : undefined}
+    >
+      {item.name}
+      <span>{item.blurb}</span>
+    </Link>
+  ));
 }
 
 export function SiteHeader() {
@@ -37,12 +56,7 @@ export function SiteHeader() {
                     </Link>
                     <div className="dd-panel">
                       <div className="dd-inner">
-                        {SERVICES.map((s) => (
-                          <Link key={s.href} href={s.href}>
-                            {s.name}
-                            <span>{s.blurb}</span>
-                          </Link>
-                        ))}
+                        <DropdownLinks items={SERVICES} pathname={pathname} />
                       </div>
                     </div>
                   </div>
@@ -53,18 +67,15 @@ export function SiteHeader() {
                   <div className="dd" key={item.href}>
                     <Link
                       href="/who-we-serve"
-                      aria-current={current(pathname, "/who-we-serve") ? "page" : undefined}
+                      aria-current={
+                        current(pathname, "/who-we-serve") ? "page" : undefined
+                      }
                     >
                       Who we serve
                     </Link>
                     <div className="dd-panel">
                       <div className="dd-inner" style={{ gridTemplateColumns: "1fr" }}>
-                        {AUDIENCES.map((s) => (
-                          <Link key={s.href} href={s.href}>
-                            {s.name}
-                            <span>{s.blurb}</span>
-                          </Link>
-                        ))}
+                        <DropdownLinks items={AUDIENCES} pathname={pathname} />
                       </div>
                     </div>
                   </div>
@@ -85,7 +96,7 @@ export function SiteHeader() {
             <Link className="btn btn-brand btn-sm" href="/start">
               Start a conversation
             </Link>
-            <details className="menu">
+            <details className="menu" key={pathname}>
               <summary aria-label="Open menu">
                 <svg
                   width="18"
@@ -102,24 +113,15 @@ export function SiteHeader() {
               </summary>
               <nav className="menu-panel" aria-label="Mobile">
                 {NAV.map((item) => (
-                  <span key={item.href}>
-                    <Link href={item.href}>{item.label}</Link>
-                    {item.dropdown === "services"
-                      ? SERVICES.map((s) => (
-                          <Link className="sub" key={s.href} href={s.href}>
-                            {s.name}
-                          </Link>
-                        ))
-                      : null}
-                    {item.dropdown === "audiences"
-                      ? AUDIENCES.map((s) => (
-                          <Link className="sub" key={s.href} href={s.href}>
-                            {s.name}
-                          </Link>
-                        ))
-                      : null}
-                  </span>
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={current(pathname, item.href) ? "page" : undefined}
+                  >
+                    {item.label}
+                  </Link>
                 ))}
+                <Link href="/how-we-work">How we work</Link>
                 <Link href="/faq">FAQ</Link>
                 <Link href="/contact">Contact</Link>
                 <Link className="btn btn-brand" href="/start">

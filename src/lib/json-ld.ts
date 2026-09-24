@@ -13,7 +13,7 @@ export function organizationNode() {
     alternateName: ["BrightLeads", "BrightLeads AI"],
     url: `${site.url}/`,
     email: site.email,
-    telephone: site.phoneHref.replace("tel:", ""),
+    telephone: site.phoneIntl,
     description: site.orgDescription,
     slogan: site.tagline,
     address: {
@@ -45,7 +45,7 @@ export function organizationNode() {
     },
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: site.phoneHref.replace("tel:", ""),
+      telephone: site.phoneIntl,
       email: site.email,
       contactType: "sales",
       areaServed: "US",

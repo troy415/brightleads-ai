@@ -54,29 +54,31 @@ export default function AboutPage() {
       />
       <Section band="band" labelledBy="story">
         <div className="split">
-          <div className="prose">
-            <h2 id="story">Why we started</h2>
-            <p>
-              BrightLeads.AI was started by an operator after years inside
-              senior living: running residential care operations and helping
-              families through placement. From that side of the table, the
-              problem was obvious. Good communities were losing families because
-              their marketing was disconnected. The website did not match the
-              ads. Inquiries sat in inboxes. Listings had the wrong phone
-              number. And as families started asking AI assistants for help,
-              many communities were not in the answer at all.
-            </p>
-            <p>
-              We built the agency around fixing that: one system, run by one
-              team, measured by move-ins, and built for the way families search
-              now.
-            </p>
-            <h2>How we think</h2>
+          <div className="stack">
+            <HeadBlock eyebrow="Our story" heading="Why we started." id="story" />
+            <div className="prose">
+              <p>
+                BrightLeads.AI was started by an operator after years inside
+                senior living: running residential care operations and helping
+                families through placement. From that side of the table, the
+                problem was obvious. Good communities were losing families because
+                their marketing was disconnected. The website did not match the
+                ads. Inquiries sat in inboxes. Listings had the wrong phone
+                number. And as families started asking AI assistants for help,
+                many communities were not in the answer at all.
+              </p>
+              <p>
+                We built the agency around fixing that: one system, run by one
+                team, measured by move-ins, and built for the way families search
+                now.
+              </p>
+              <h3>How we think</h3>
             <p>
               We market for what happens after the form is submitted. That means
               speed to lead, honest pricing guidance, tours that answer real
               questions, and follow-up that respects a hard family decision.
             </p>
+            </div>
           </div>
           <dl className="facts" aria-label="Company facts">
             <dt>Name</dt>
@@ -88,9 +90,13 @@ export default function AboutPage() {
               {site.addressLine}, {site.cityLine}
             </dd>
             <dt>Phone</dt>
-            <dd>{site.phone}</dd>
+            <dd>
+              <a href={site.phoneHref}>{site.phone}</a>
+            </dd>
             <dt>Email</dt>
-            <dd>{site.email}</dd>
+            <dd>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+            </dd>
             <dt>Service area</dt>
             <dd>United States</dd>
             <dt>Terms</dt>

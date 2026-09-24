@@ -32,13 +32,15 @@ export default function PrivacyPage() {
           ["Home", ""],
           ["Privacy", "/privacy"],
         ]}
+        eyebrow="Legal"
         h1="Privacy policy."
         lead="How we handle information you share with us through this website."
       />
       <Section>
         <div className="prose">
           <p>
-            <em>Template. Have counsel review before launch.</em>
+            Last updated September 23, 2026. This policy covers information
+            collected through brightleads.ai.
           </p>
           <h2>What we collect</h2>
           <p>

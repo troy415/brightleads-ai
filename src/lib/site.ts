@@ -10,6 +10,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://brightleads.ai",
   phone: "(415) 741-2648",
   phoneHref: "tel:+14157412648",
+  phoneIntl: "+1-415-741-2648",
   email: "info@brightleads.ai",
   addressLine: "14 Precita Ave. Suite J",
   city: "San Francisco",

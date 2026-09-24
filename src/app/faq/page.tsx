@@ -1,4 +1,4 @@
-import { CtaBand, PageHero, Section } from "@/components/chrome";
+import { CtaBand, HeadBlock, PageHero, Section } from "@/components/chrome";
 import { JsonLd } from "@/components/json-ld";
 import { HOME_FAQS } from "@/lib/catalog";
 import { SERVICE_DOCS } from "@/lib/content/services";
@@ -99,9 +99,7 @@ export default function FaqPage() {
           band={i % 2 === 0 ? "band" : ""}
           labelledBy={group.id}
         >
-          <div className="head">
-            <h2 id={group.id}>{group.title}</h2>
-          </div>
+          <HeadBlock eyebrow="FAQ" heading={group.title} id={group.id} />
           <div className="faq">
             {group.faqs.map((item) => (
               <details key={item.q}>

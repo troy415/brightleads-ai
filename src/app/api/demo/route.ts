@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+import { site } from "@/lib/site";
+
 function asString(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
 }
@@ -71,7 +73,7 @@ export async function POST(request: Request) {
         return NextResponse.json(
           {
             error:
-              "Your request looked good, but we could not deliver it. Call (415) 741-2648 or email info@brightleads.ai.",
+              `Your request looked good, but we could not deliver it. Call ${site.phone} or email ${site.email}.`,
           },
           { status: 502 }
         );
@@ -79,8 +81,8 @@ export async function POST(request: Request) {
     } catch {
       return NextResponse.json(
         {
-          error:
-            "Your request looked good, but we could not deliver it. Call (415) 741-2648 or email info@brightleads.ai.",
+            error:
+              `Your request looked good, but we could not deliver it. Call ${site.phone} or email ${site.email}.`,
         },
         { status: 502 }
       );

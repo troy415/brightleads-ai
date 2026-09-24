@@ -14,7 +14,7 @@ import {
 import { Arrow } from "@/components/icons";
 import { JsonLd } from "@/components/json-ld";
 import { AUDIENCES, HOME_FAQS, STEPS } from "@/lib/catalog";
-import { faqPageJsonLd, pageGraph } from "@/lib/json-ld";
+import { pageGraph } from "@/lib/json-ld";
 import { site } from "@/lib/site";
 
 const WHY = [
@@ -63,7 +63,6 @@ export default function HomePage() {
           faqs: HOME_FAQS,
         })}
       />
-      <JsonLd data={faqPageJsonLd(site.url, HOME_FAQS)} />
       <section className="hero">
         <div className="glow" />
         <div className="wrap hero-grid">

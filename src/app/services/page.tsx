@@ -75,36 +75,32 @@ export default function ServicesPage() {
         />
       </Section>
       <Section band="band" labelledBy="plans">
-        <div className="split">
-          <div className="stack">
-            <HeadBlock
-              eyebrow="Plans"
-              heading="Three ways to work with us."
-              lead="Every plan is month to month and includes AI visibility fundamentals."
-              id="plans"
-            />
-          </div>
-          <Cards
-            cols="g2"
-            items={[
-              {
-                k: "Foundation",
-                t: "Get found and get cited",
-                d: "AI visibility, SEO, local SEO, Google Business Profile, reviews, and tracking. For communities that need a strong base.",
-              },
-              {
-                k: "Growth",
-                t: "Add demand and follow-up",
-                d: "Everything in Foundation plus paid media, landing pages, CRM nurture, and content. For communities with open units to fill.",
-              },
-              {
-                k: "Full system",
-                t: "Your whole marketing department",
-                d: "Everything in Growth plus brand, website, sales enablement, research, and a dedicated strategist. For operators and portfolios.",
-              },
-            ]}
-          />
-        </div>
+        <HeadBlock
+          eyebrow="Plans"
+          heading="Three ways to work with us."
+          lead="Every plan is month to month and includes AI visibility fundamentals."
+          id="plans"
+        />
+        <Cards
+          cols="g3"
+          items={[
+            {
+              k: "Foundation",
+              t: "Get found and get cited",
+              d: "AI visibility, SEO, local SEO, Google Business Profile, reviews, and tracking. For communities that need a strong base.",
+            },
+            {
+              k: "Growth",
+              t: "Add demand and follow-up",
+              d: "Everything in Foundation plus paid media, landing pages, CRM nurture, and content. For communities with open units to fill.",
+            },
+            {
+              k: "Full system",
+              t: "Your whole marketing department",
+              d: "Everything in Growth plus brand, website, sales enablement, research, and a dedicated strategist. For operators and portfolios.",
+            },
+          ]}
+        />
       </Section>
       <FaqList
         faqs={FAQS}

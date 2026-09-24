@@ -212,9 +212,9 @@ export function CtaBand({
             <Link className="btn btn-brand" href="/start">
               Get a free AI visibility check <Arrow />
             </Link>
-            <Link className="btn btn-ghost" href="/contact">
+            <a className="btn btn-ghost" href={site.phoneHref}>
               Call {site.phone}
-            </Link>
+            </a>
           </div>
         </div>
       </div>

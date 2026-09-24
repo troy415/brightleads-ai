@@ -70,6 +70,9 @@ export function SiteFooter() {
             <li>
               <Link href="/contact">Contact</Link>
             </li>
+            <li>
+              <Link href="/start">Start a conversation</Link>
+            </li>
           </ul>
         </div>
       </div>

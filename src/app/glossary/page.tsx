@@ -1,7 +1,7 @@
 import { CtaBand, PageHero, Section } from "@/components/chrome";
 import { JsonLd } from "@/components/json-ld";
 import { pageGraph } from "@/lib/json-ld";
-import { pageMeta } from "@/lib/site";
+import { pageMeta, site } from "@/lib/site";
 
 const TERMS: [string, string][] = [
   ["Activities of daily living (ADLs)", "Basic self-care tasks such as bathing, dressing, eating, toileting, transferring, and continence. The level of help a person needs with ADLs often determines the right care setting."],
@@ -78,13 +78,13 @@ export default function GlossaryPage() {
           extra: [
             {
               "@type": "DefinedTermSet",
-              "@id": "https://brightleads.ai/glossary#terms",
+              "@id": `${site.url}/glossary#terms`,
               name: "Senior living marketing and AI visibility glossary",
               hasDefinedTerm: TERMS.map(([name, description]) => ({
                 "@type": "DefinedTerm",
                 name,
                 description,
-                url: `https://brightleads.ai/glossary#${slug(name)}`,
+                url: `${site.url}/glossary#${slug(name)}`,
               })),
             },
           ],

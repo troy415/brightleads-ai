@@ -58,7 +58,7 @@ BrightLeads.AI is a marketing agency for senior living operators (owners, operat
 - [About BrightLeads.AI: Senior Living Marketing Built by an Operator](https://brightleads.ai/about): About BrightLeads.AI, a San Francisco senior living marketing agency founded by an operator with RCFE operations, senior placement, and enterprise project management experience.
 - [Senior Living Marketing FAQ](https://brightleads.ai/faq): Answers to common questions about BrightLeads.AI, senior living marketing, AI visibility, pricing, contracts, and services.
 - [Senior Living Marketing & AI Visibility Glossary](https://brightleads.ai/glossary): Plain-language definitions of senior living and marketing terms: RCFE, ARF, memory care, census, cost per move-in, GEO, AEO, AI visibility, llms.txt, schema, and more.
-- [Start a Conversation & Free AI Visibility Check](https://brightleads.ai/start): Request a free AI visibility check for your senior living community and start a conversation with BrightLeads.AI about occupancy, leads, and marketing.
+- [Start a Conversation & Free AI Visibility Check](https://brightleads.ai/start): Get a free AI visibility check for your senior living community and start a conversation with BrightLeads.AI about occupancy, leads, and marketing.
 - [Contact BrightLeads.AI](https://brightleads.ai/contact): Contact BrightLeads.AI: (415) 741-2648, info@brightleads.ai, 14 Precita Ave. Suite J, San Francisco, CA 94110. Serving senior living operators across the United States.
 
 ## Guides

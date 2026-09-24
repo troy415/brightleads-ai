@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { PageHero, Section } from "@/components/chrome";
 import { pageMeta, site } from "@/lib/site";
 
@@ -16,6 +18,7 @@ export default function ThankYouPage() {
           ["Home", ""],
           ["Thank you", "/thank-you"],
         ]}
+        eyebrow="Thank you"
         h1="Thanks. We will be in touch within one business day."
         lead={`If it is urgent, call ${site.phone}.`}
       />
@@ -27,6 +30,9 @@ export default function ThankYouPage() {
           <a className="btn btn-ghost" href={`mailto:${site.email}`}>
             Email {site.email}
           </a>
+          <Link className="btn btn-ghost" href="/">
+            Back to home
+          </Link>
         </div>
       </Section>
     </>

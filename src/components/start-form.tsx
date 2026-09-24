@@ -37,11 +37,15 @@ export function StartForm() {
   const router = useRouter();
   const [status, setStatus] = useState<Status>("empty");
   const [error, setError] = useState<string | null>(null);
+  const [fields, setFields] = useState<Record<string, string>>({});
+
+  const busy = status === "loading";
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus("loading");
     setError(null);
+    setFields({});
 
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -66,10 +70,14 @@ export function StartForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const body = (await response.json()) as { error?: string };
+      const body = (await response.json()) as {
+        error?: string;
+        fields?: Record<string, string>;
+      };
       if (!response.ok) {
         setStatus("error");
         setError(body.error ?? "Check the form and try again.");
+        setFields(body.fields ?? {});
         return;
       }
       router.push("/thank-you");
@@ -83,47 +91,99 @@ export function StartForm() {
     <form className="form" name="start" onSubmit={onSubmit} data-bl>
       <p hidden>
         <label>
-          Leave this empty <input name="company_site" id="company_site" tabIndex={-1} autoComplete="off" />
+          Leave this empty{" "}
+          <input name="company_site" id="company_site" tabIndex={-1} autoComplete="off" />
         </label>
       </p>
       <div className="row">
-        <div className="field">
+        <div className={fields.name ? "field has-error" : "field"}>
           <label htmlFor="f-name">Your name</label>
-          <input id="f-name" name="name" autoComplete="name" required />
+          <input
+            id="f-name"
+            name="name"
+            autoComplete="name"
+            required
+            disabled={busy}
+            aria-invalid={fields.name ? true : undefined}
+            aria-describedby={fields.name ? "err-name" : undefined}
+          />
+          {fields.name ? (
+            <p className="field-error" id="err-name">
+              {fields.name}
+            </p>
+          ) : null}
         </div>
         <div className="field">
           <label htmlFor="f-role">Role</label>
-          <input id="f-role" name="role" placeholder="Owner, ED, VP Sales and Marketing" />
+          <input
+            id="f-role"
+            name="role"
+            placeholder="Owner, ED, VP Sales and Marketing"
+            disabled={busy}
+          />
         </div>
       </div>
       <div className="row">
-        <div className="field">
+        <div className={fields.organization ? "field has-error" : "field"}>
           <label htmlFor="f-org">Community or company</label>
-          <input id="f-org" name="organization" autoComplete="organization" required />
+          <input
+            id="f-org"
+            name="organization"
+            autoComplete="organization"
+            required
+            disabled={busy}
+            aria-invalid={fields.organization ? true : undefined}
+            aria-describedby={fields.organization ? "err-org" : undefined}
+          />
+          {fields.organization ? (
+            <p className="field-error" id="err-org">
+              {fields.organization}
+            </p>
+          ) : null}
         </div>
         <div className="field">
           <label htmlFor="f-web">Website</label>
-          <input id="f-web" name="website" type="url" placeholder="https://" />
+          <input
+            id="f-web"
+            name="website"
+            inputMode="url"
+            placeholder="https://"
+            disabled={busy}
+          />
         </div>
       </div>
       <div className="row">
-        <div className="field">
+        <div className={fields.email ? "field has-error" : "field"}>
           <label htmlFor="f-email">Email</label>
-          <input id="f-email" name="email" type="email" autoComplete="email" required />
+          <input
+            id="f-email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            disabled={busy}
+            aria-invalid={fields.email ? true : undefined}
+            aria-describedby={fields.email ? "err-email" : undefined}
+          />
+          {fields.email ? (
+            <p className="field-error" id="err-email">
+              {fields.email}
+            </p>
+          ) : null}
         </div>
         <div className="field">
           <label htmlFor="f-phone">Phone</label>
-          <input id="f-phone" name="phone" type="tel" autoComplete="tel" />
+          <input id="f-phone" name="phone" type="tel" autoComplete="tel" disabled={busy} />
         </div>
       </div>
       <div className="row">
         <div className="field">
           <label htmlFor="f-loc">City and state</label>
-          <input id="f-loc" name="location" placeholder="San Mateo, CA" />
+          <input id="f-loc" name="location" placeholder="San Mateo, CA" disabled={busy} />
         </div>
         <div className="field">
           <label htmlFor="f-count">Number of communities</label>
-          <select id="f-count" name="communities" defaultValue="1">
+          <select id="f-count" name="communities" defaultValue="1" disabled={busy}>
             <option>1</option>
             <option>2 to 5</option>
             <option>6 to 20</option>
@@ -131,7 +191,7 @@ export function StartForm() {
           </select>
         </div>
       </div>
-      <fieldset className="field">
+      <fieldset className="field" disabled={busy}>
         <legend>Care types</legend>
         <div className="opts">
           {CARE.map((item) => (
@@ -141,7 +201,7 @@ export function StartForm() {
           ))}
         </div>
       </fieldset>
-      <fieldset className="field">
+      <fieldset className="field" disabled={busy}>
         <legend>What do you need help with?</legend>
         <div className="opts">
           {NEEDS.map((item) => (
@@ -153,15 +213,15 @@ export function StartForm() {
       </fieldset>
       <div className="field">
         <label htmlFor="f-msg">What is happening with occupancy and leads right now?</label>
-        <textarea id="f-msg" name="message" />
+        <textarea id="f-msg" name="message" disabled={busy} />
       </div>
       {error ? (
-        <p className="small" role="alert">
+        <p className="form-error" role="alert">
           {error}
         </p>
       ) : null}
-      <button className="btn btn-brand" type="submit" disabled={status === "loading"} style={{ justifySelf: "start" }}>
-        {status === "loading" ? "Sending…" : "Request my free AI visibility check"} <Arrow />
+      <button className="btn btn-brand" type="submit" disabled={busy} style={{ justifySelf: "start" }}>
+        {busy ? "Sending..." : "Get a free AI visibility check"} <Arrow />
       </button>
       <p className="small">We reply within one business day. We never share your information.</p>
     </form>

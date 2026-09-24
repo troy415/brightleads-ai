@@ -10,7 +10,7 @@ function block(title: string, url: string, body: string) {
 
 export function llmsFullTxt(): string {
   const parts = [
-    block("Home", `${site.url}/`, `${site.orgDescription}\n\n${HOME_FAQS.map((f) => `Q: ${f.q}\nA: ${f.a}`).join("\n\n")}`),
+    block("Home", `${site.url}/`, `${site.tagline}\n${site.heroLine}\n\n${site.orgDescription}\n\n${HOME_FAQS.map((f) => `Q: ${f.q}\nA: ${f.a}`).join("\n\n")}`),
     ...SERVICE_DOCS.map((s) =>
       block(s.name, `${site.url}${s.path}`, `${s.answer}\n\n${s.includes.map(([t, d]) => `- ${t}: ${d}`).join("\n")}`)
     ),
@@ -20,5 +20,5 @@ export function llmsFullTxt(): string {
     block("Guides", `${site.url}/guides`, GUIDES_HUB.answer),
     ...GUIDE_DOCS.map((g) => block(g.h1, `${site.url}${g.path}`, g.answer)),
   ];
-  return `# BrightLeads.AI full site text\n\n${parts.join("\n---\n\n")}\n`;
+  return `# BrightLeads.AI full site text\n\n${site.tagline}\n${site.heroLine}\n\n${parts.join("\n---\n\n")}\n`;
 }

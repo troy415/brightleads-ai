@@ -61,14 +61,14 @@ export default function WhoWeServePage() {
           </div>
           <div className="prose">
             <p>
-              This website is for the people who run senior living: owners,
-              operators, administrators, and sales and marketing leaders.
-              Families are the residents our clients want to reach. We do not
-              operate a family directory or a placement service.
+              This website is written for the people who run senior living:
+              owners, operators, administrators, and sales and marketing
+              leaders. We market communities so families can find them. We do
+              not operate a family directory or a placement service.
             </p>
             <p>
-              If you are a family looking for care, the community you are
-              considering is the best place to start.
+              If you are looking for care for a family member, start with the
+              community you are considering.
             </p>
           </div>
         </div>
