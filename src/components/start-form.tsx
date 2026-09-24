@@ -177,7 +177,7 @@ export function StartForm() {
           id="message"
           name="message"
           rows={4}
-          placeholder="Website, campaigns, occupancy, how inquiries reach the team."
+          placeholder="Website, campaigns, occupancy, AI visibility, how inquiries reach the team."
           className="min-h-28 bg-card"
           disabled={status === "loading"}
         />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { FaqSection } from "@/components/faq-section";
 import {
   Accordion,
   AccordionContent,
@@ -14,7 +15,8 @@ import { cn } from "cn";
 export const metadata: Metadata = {
   title: "Communities",
   description:
-    "BrightLeads.AI works with care homes, senior communities, RCFEs, ARFs, and similar operators who need a system to find residents and customers.",
+    "BrightLeads.AI works with care homes, senior communities, RCFEs, and ARFs. This site is for the operators who run the home, not a family directory.",
+  alternates: { canonical: "/communities" },
 };
 
 const pains = [
@@ -30,6 +32,10 @@ const pains = [
     title: "Leads never become tours",
     copy: "An inquiry that sits overnight is often gone. The technical system has to route the lead and keep follow-up visible so staff can act.",
   },
+  {
+    title: "AI answers skip the community",
+    copy: "Families ask assistants which home to call. If the community is not a clear entity with citable facts, those answers name someone else. AI visibility is part of the system.",
+  },
 ];
 
 export default function CommunitiesPage() {
@@ -43,11 +49,11 @@ export default function CommunitiesPage() {
       </h1>
       <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
         Care homes, senior communities, RCFEs, ARFs, and similar operators hire
-        BrightLeads.AI to find residents and customers. Families are the people
-        those homes want to reach. They are not the buyer of this site, and
-        this is not a consumer directory.
+        BrightLeads.AI to find residents. Families are the people those homes
+        want to reach. This site is for the operators who run the home. It is
+        not a consumer directory.
       </p>
-      <div className="mt-14 grid gap-6 md:grid-cols-3">
+      <div className="mt-14 grid gap-6 md:grid-cols-2">
         {pains.map((pain) => (
           <article
             key={pain.title}
@@ -79,22 +85,26 @@ export default function CommunitiesPage() {
             <ArrowRight />
           </Link>
         </div>
-        <Accordion className="rounded-2xl border border-border bg-card px-5">
+        <Accordion
+          className="rounded-2xl border border-border bg-card px-5"
+          defaultValue={["homes"]}
+        >
           <AccordionItem value="homes">
             <AccordionTrigger>Care homes and board and care</AccordionTrigger>
             <AccordionContent>
-              Smaller homes still need to show up when a family searches. A
-              clear site, a campaign that points at the right page, and a form
-              that reaches staff can fill rooms without a large in-house team.
+              Smaller homes still need to show up when a family searches or
+              asks an assistant. A clear site, a campaign that points at the
+              right page, and a form that reaches staff can fill rooms without
+              a large in-house team.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="rcfe">
             <AccordionTrigger>RCFEs and senior communities</AccordionTrigger>
             <AccordionContent>
               Residential Care Facilities for the Elderly and larger communities
-              need the website, ads, and follow-up to agree. We connect those
-              pieces so inquiries are not lost between marketing and the front
-              desk.
+              need the website, ads, follow-up, and AI visibility to agree. We
+              connect those pieces so inquiries are not lost between marketing
+              and the front desk.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="arf">
@@ -103,12 +113,15 @@ export default function CommunitiesPage() {
               Adult Residential Facilities and related operators have a
               different searcher and a different care story. The system still
               has the same job: a site that explains the offer, campaigns that
-              find the right families, and technical follow-up that holds the
-              lead.
+              find the right families, technical follow-up that holds the lead,
+              and pages assistants can cite.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>
+      <FaqSection
+        heading="Who BrightLeads.AI is, and who this page is for."
+      />
     </div>
   );
 }

@@ -6,7 +6,8 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Start a conversation",
   description:
-    "Talk with BrightLeads.AI about marketing systems for your care home, senior community, RCFE, or ARF.",
+    "Talk with BrightLeads.AI about web design, campaigns, technical systems, and AI visibility for your care home, senior community, RCFE, or ARF.",
+  alternates: { canonical: "/start" },
 };
 
 export default function StartPage() {
@@ -22,8 +23,9 @@ export default function StartPage() {
         <p className="mt-5 text-base leading-7 text-muted-foreground">
           These conversations are for operators: owners, administrators, and
           marketing leads at care homes and senior communities. Bring the
-          website you have now, how inquiries reach the team, and where
-          occupancy is tight. This is not a family intake form.
+          website you have now, how inquiries reach the team, where occupancy
+          is tight, and whether families can find you in AI answers. This is
+          not a family intake form.
         </p>
         <ul className="mt-8 space-y-3 text-sm leading-6 text-muted-foreground">
           <li>

@@ -8,7 +8,8 @@ import { cn } from "cn";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "BrightLeads.AI builds systems for care homes and senior communities: web design, marketing campaigns, and technical systems that interact to drive leads.",
+    "BrightLeads.AI work for care homes and senior communities: web design, marketing campaigns, technical systems, and AI visibility that interact to drive resident leads.",
+  alternates: { canonical: "/work" },
 };
 
 const modules = [
@@ -39,6 +40,15 @@ const modules = [
       "A setup operators can actually run after launch, without a second IT project.",
     ],
   },
+  {
+    title: "AI visibility",
+    points: [
+      "Pages and facts structured so AI systems can cite the community by name, location, care type, and how to inquire.",
+      "Answer-ready copy for the questions families actually ask assistants, not only keyword lists for Google.",
+      "Technical signals on the community site: schema, semantic headings, crawl access, and an llms.txt overview.",
+      "The same discipline we use on brightleads.ai. No invented reviews, years in business, or client counts.",
+    ],
+  },
 ];
 
 export default function WorkPage() {
@@ -48,15 +58,15 @@ export default function WorkPage() {
         Work
       </p>
       <h1 className="mt-3 max-w-3xl font-heading text-4xl text-foreground sm:text-5xl">
-        Web, campaigns, and systems built to interact.
+        Web, campaigns, systems, and AI visibility built to interact.
       </h1>
       <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
         Occupancy does not come from a prettier homepage or a one-off ad buy.
-        BrightLeads.AI designs the website, runs the campaigns, and wires the
-        technical layer so they feed each other and drive leads for the
-        community.
+        BrightLeads.AI designs the website, runs the campaigns, wires the
+        technical layer, and makes the community citable in AI answers so those
+        pieces feed each other and drive leads.
       </p>
-      <div className="mt-14 grid gap-6 lg:grid-cols-3">
+      <div className="mt-14 grid gap-6 md:grid-cols-2">
         {modules.map((mod) => (
           <article
             key={mod.title}
@@ -80,16 +90,28 @@ export default function WorkPage() {
         </h2>
         <p className="mt-3 max-w-xl text-sm leading-6 text-primary-foreground/70">
           We will look at how families find you today, where inquiries stall,
-          and which pieces of the system are missing. No invented case studies.
-          Just the work in front of your community.
+          and which pieces of the system are missing, including whether
+          assistants can name the community. No invented case studies. Just the
+          work in front of your community.
         </p>
-        <Link
-          href="/start"
-          className={cn(buttonVariants({ size: "lg" }), "mt-6 h-11 px-5")}
-        >
-          Start a conversation
-          <ArrowRight />
-        </Link>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <Link
+            href="/start"
+            className={cn(buttonVariants({ size: "lg" }), "h-11 px-5")}
+          >
+            Start a conversation
+            <ArrowRight />
+          </Link>
+          <Link
+            href="/ai-visibility"
+            className={cn(
+              buttonVariants({ variant: "outline", size: "lg" }),
+              "h-11 px-5 border-white/20 bg-transparent text-white hover:bg-white/10"
+            )}
+          >
+            AI visibility
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -24,7 +24,7 @@ export function SiteHeader() {
         <Link href="/" aria-label="BrightLeads.AI home">
           <Logo />
         </Link>
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-5 lg:gap-8 md:flex">
           {nav.map((item) => (
             <Link
               key={item.href}

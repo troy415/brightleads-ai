@@ -11,8 +11,8 @@ export function SiteFooter() {
           <Logo className="text-white" />
           <p className="mt-4 max-w-sm text-sm leading-6 text-primary-foreground/70">
             A marketing agency for care homes, senior communities, RCFEs, ARFs,
-            and similar operators. Web design, campaigns, and technical systems
-            that interact to drive leads.
+            and similar operators. Web design, campaigns, technical systems, and
+            AI visibility that interact to drive resident leads.
           </p>
         </div>
         <div>
@@ -28,6 +28,11 @@ export function SiteFooter() {
             <li>
               <Link href="/communities" className="hover:text-teal">
                 Communities
+              </Link>
+            </li>
+            <li>
+              <Link href="/ai-visibility" className="hover:text-teal">
+                AI visibility
               </Link>
             </li>
             <li>
@@ -71,7 +76,10 @@ export function SiteFooter() {
       <div className="border-t border-white/10">
         <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-primary-foreground/50 sm:px-6">
           © {new Date().getFullYear()} BrightLeads.AI. Marketing systems for
-          care homes and senior communities.
+          care homes and senior communities.{" "}
+          <Link href="/llms.txt" className="hover:text-teal">
+            llms.txt
+          </Link>
         </p>
       </div>
     </footer>

@@ -8,7 +8,8 @@ import { cn } from "cn";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact BrightLeads.AI in San Francisco: phone, email, and office for care homes, senior communities, RCFEs, and ARFs.",
+    "Contact BrightLeads.AI in San Francisco at 14 Precita Ave. Suite J. Phone (415) 741-2648. For care home, RCFE, ARF, and senior community operators.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
@@ -22,9 +23,9 @@ export default function ContactPage() {
       </h1>
       <p className="mt-5 max-w-xl text-base leading-7 text-muted-foreground">
         This is for care homes, senior communities, RCFEs, ARFs, and similar
-        operators who want a marketing system that finds residents. If you are
-        a family looking for a home, call a community in your market. This
-        site is not a consumer directory.
+        operators who want a marketing system that finds residents, including
+        AI visibility. If you are a family looking for a home, call a community
+        in your market. This site is for the operators who run the home.
       </p>
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         <article className="rounded-2xl border border-border bg-card p-6">
