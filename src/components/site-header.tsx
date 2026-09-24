@@ -1,88 +1,135 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 import { Logo } from "@/components/logo";
-import { Button, buttonVariants } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
-import { nav } from "@/lib/site";
-import { cn } from "cn";
+import { AUDIENCES, NAV, SERVICES } from "@/lib/catalog";
+
+function current(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 export function SiteHeader() {
-  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/80 bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" aria-label="BrightLeads.AI home">
-          <Logo />
-        </Link>
-        <nav className="hidden items-center gap-5 lg:gap-8 md:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="hidden md:block">
-          <Link
-            href="/start"
-            className={cn(buttonVariants({ size: "lg" }), "h-10 px-4")}
-          >
-            Start a conversation
-          </Link>
-        </div>
-        <Button
-          variant="outline"
-          size="icon"
-          className="md:hidden"
-          onClick={() => setOpen(true)}
-          aria-label="Open menu"
-        >
-          <Menu />
-        </Button>
-      </div>
-      <Sheet open={open} onOpenChange={setOpen}>
-        <SheetContent side="right" className="bg-background">
-          <SheetHeader>
-            <SheetTitle className="sr-only">Menu</SheetTitle>
+    <>
+      <a className="skip" href="#main">
+        Skip to content
+      </a>
+      <header className="site-header">
+        <div className="wrap">
+          <Link className="logo-link" href="/" aria-label="BrightLeads.AI home">
             <Logo />
-          </SheetHeader>
-          <nav className="flex flex-col gap-1 px-4">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-2 py-3 text-base font-medium text-foreground hover:bg-muted"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="/start"
-              onClick={() => setOpen(false)}
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "mt-4 h-11 justify-center"
-              )}
-            >
+          </Link>
+          <nav className="nav" aria-label="Primary">
+            {NAV.map((item) => {
+              if (item.dropdown === "services") {
+                return (
+                  <div className="dd" key={item.href}>
+                    <Link
+                      href="/services"
+                      aria-current={current(pathname, "/services") ? "page" : undefined}
+                    >
+                      Services
+                    </Link>
+                    <div className="dd-panel">
+                      <div className="dd-inner">
+                        {SERVICES.map((s) => (
+                          <Link key={s.href} href={s.href}>
+                            {s.name}
+                            <span>{s.blurb}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+              if (item.dropdown === "audiences") {
+                return (
+                  <div className="dd" key={item.href}>
+                    <Link
+                      href="/who-we-serve"
+                      aria-current={current(pathname, "/who-we-serve") ? "page" : undefined}
+                    >
+                      Who we serve
+                    </Link>
+                    <div className="dd-panel">
+                      <div className="dd-inner" style={{ gridTemplateColumns: "1fr" }}>
+                        {AUDIENCES.map((s) => (
+                          <Link key={s.href} href={s.href}>
+                            {s.name}
+                            <span>{s.blurb}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={current(pathname, item.href) ? "page" : undefined}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+          <div className="header-cta">
+            <Link className="btn btn-brand btn-sm" href="/start">
               Start a conversation
             </Link>
-          </nav>
-        </SheetContent>
-      </Sheet>
-    </header>
+            <details className="menu">
+              <summary aria-label="Open menu">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+              </summary>
+              <nav className="menu-panel" aria-label="Mobile">
+                {NAV.map((item) => (
+                  <span key={item.href}>
+                    <Link href={item.href}>{item.label}</Link>
+                    {item.dropdown === "services"
+                      ? SERVICES.map((s) => (
+                          <Link className="sub" key={s.href} href={s.href}>
+                            {s.name}
+                          </Link>
+                        ))
+                      : null}
+                    {item.dropdown === "audiences"
+                      ? AUDIENCES.map((s) => (
+                          <Link className="sub" key={s.href} href={s.href}>
+                            {s.name}
+                          </Link>
+                        ))
+                      : null}
+                  </span>
+                ))}
+                <Link href="/faq">FAQ</Link>
+                <Link href="/contact">Contact</Link>
+                <Link className="btn btn-brand" href="/start">
+                  Start a conversation
+                </Link>
+              </nav>
+            </details>
+          </div>
+        </div>
+      </header>
+    </>
   );
 }

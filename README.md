@@ -2,9 +2,11 @@
 
 Sales site for **BrightLeads.AI**, a San Francisco marketing agency for care homes, senior communities, RCFEs, ARFs, and similar operators.
 
-The offer: web design, marketing campaigns, and technical systems interact to drive resident leads. **AI visibility** is part of that system (how the community shows up in AI answers, not only in Google). Buyers are operators. This site is for the operators who run the home.
+Hero: **Fill rooms with a system that works together.** SEO · Paid media · Websites · Reputation · CRM · AI visibility.
 
-White marketing page (`#ffffff`) with app color pop (sky `#0ea5e9`, indigo `#6366f1`, purple `#8b5cf6`). Dark navy is reserved for the product mock and the footer. Headlines use **Inter**. Copy does not use em dashes.
+Buyers are operators. This site is for the operators who run the home. It is not a family directory and not a placement agency.
+
+White marketing page (`#ffffff`) with app color pop (sky `#0ea5e9`, indigo `#6366f1`). Headlines use **Inter**. Copy does not use em dashes.
 
 Stack: Next.js, TypeScript, Tailwind, shadcn/ui. GitHub `troy415/brightleads-ai` → Netlify production (`brightleads.ai`).
 
@@ -12,7 +14,6 @@ Stack: Next.js, TypeScript, Tailwind, shadcn/ui. GitHub `troy415/brightleads-ai`
 
 ```bash
 cd ~/Desktop/Website\ for\ BrightLeads.AI
-cp .env.example .env.local   # optional
 npm install
 npm run dev
 ```
@@ -28,42 +29,39 @@ Open [http://127.0.0.1:43123](http://127.0.0.1:43123).
 
 ## Env
 
-Copy `.env.example` to `.env.local`. Nothing is required to run locally.
-
 | Variable | Purpose |
 |---|---|
 | `NEXT_PUBLIC_SITE_URL` | Canonical URL for metadata, sitemap, JSON-LD, and llms.txt |
-| `DEMO_WEBHOOK_URL` | Optional. If set, inquiry form requests POST JSON here (Make, Zapier, n8n, or your inbox bridge). If unset, the form still succeeds and logs on the server. |
+| `DEMO_WEBHOOK_URL` | Optional. If set, `/start` form requests POST JSON here. If unset, the form still succeeds and logs on the server. |
 
-## Deploy
+## Information architecture
 
-1. Push to GitHub: `https://github.com/troy415/brightleads-ai`
-2. Netlify team **Bright Leads Dev Team** (`troyafarol`) builds from `main`
-3. Build command: `npm run build` · Node 22 · Next.js runtime via `@netlify/plugin-nextjs`
-4. Production env: `NEXT_PUBLIC_SITE_URL=https://brightleads.ai`
+Primary nav: **Services**, **Who we serve**, **Guides**, **AI visibility**, plus **Start a conversation**.
 
-Production: [https://brightleads.ai](https://brightleads.ai). Preview: [https://brightleads-ai.netlify.app](https://brightleads-ai.netlify.app).
+| Route | Role |
+|---|---|
+| `/` | Home. Fill rooms hero. Connected system plus AI visibility. FAQ. |
+| `/services` | Twelve-service hub |
+| `/services/*` | Nested service pages (SEO, local SEO, paid media, websites, reputation, branding, content, CRM, sales enablement, research, lease-up) |
+| `/ai-visibility` | Flagship AI visibility / GEO / AEO service |
+| `/who-we-serve` | Operator audiences hub |
+| `/who-we-serve/*` | RCFEs, AL/MC, IL/life plan, portfolios, home care |
+| `/guides` | Operator guides hub |
+| `/guides/*` | AI search, SEO checklist, inquiry-to-move-in |
+| `/how-we-work` | Process, 90-day plan, month-to-month terms |
+| `/choosing-an-agency` | Buyer's guide |
+| `/about` `/faq` `/glossary` `/contact` `/privacy` | Secondary pages (footer) |
+| `/start` `/thank-you` | AI visibility check form |
+| `/llms.txt` `/llms-full.txt` | Machine-readable overviews |
 
-## Pages
-
-- `/` Home: agency offer; connected systems plus AI visibility; FAQ
-- `/work` Web design, campaigns, technical systems, AI visibility
-- `/communities` Buyer page for care homes, senior communities, RCFEs, and ARFs
-- `/ai-visibility` How communities show up in AI answers
-- `/start` Conversation form for operators
-- `/contact` Phone, email, San Francisco office
-- `/llms.txt` Machine-readable overview for AI systems
-- `/sitemap.xml` and `/robots.txt`
-
-Old routes redirect: `/platform` → `/work`, `/agencies` and `/partners` → `/communities`, `/demo` → `/start`.
+Old URLs redirect: `/work` → `/services`, `/communities` → `/who-we-serve`, `/platform` → `/services`, `/agencies` and `/partners` → `/who-we-serve`, `/demo` → `/start`. html+md source pairs are one Next.js route each, not two live URLs.
 
 ## AI visibility on this site
 
-- JSON-LD: Organization + ProfessionalService + WebSite on every page; FAQPage on home and `/ai-visibility`
-- `/llms.txt` with entity, buyers, services, and page list
+- JSON-LD Organization + ProfessionalService + WebSite on every page; FAQPage, Service, Article, DefinedTermSet where they fit
+- `/llms.txt` and `/llms-full.txt`
 - Semantic headings and a FAQ that answers who BrightLeads is, who it is for, and how it differs
-- Titles and descriptions written so models can cite name, San Francisco location, services, and buyers
-- Robots allow search and AI crawlers; sitemap includes `/ai-visibility`
+- Robots allow search and AI crawlers
 
 No invented reviews, years in business, or client counts.
 

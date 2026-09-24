@@ -1,59 +1,79 @@
-import type { Metadata } from "next";
-
+import { HeadBlock, PageHero, Section, Steps } from "@/components/chrome";
+import { JsonLd } from "@/components/json-ld";
 import { StartForm } from "@/components/start-form";
-import { site } from "@/lib/site";
+import { pageGraph } from "@/lib/json-ld";
+import { pageMeta, site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Start a conversation",
-  description:
-    "Talk with BrightLeads.AI about web design, campaigns, technical systems, and AI visibility for your care home, senior community, RCFE, or ARF.",
-  alternates: { canonical: "/start" },
-};
+const TITLE = "Start a Conversation & Free AI Visibility Check | BrightLeads.AI";
+const DESCRIPTION =
+  "Request a free AI visibility check for your senior living community and start a conversation with BrightLeads.AI about occupancy, leads, and marketing.";
+
+export const metadata = pageMeta({
+  title: TITLE,
+  description: DESCRIPTION,
+  path: "/start",
+});
 
 export default function StartPage() {
   return (
-    <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:py-20">
-      <div>
-        <p className="text-xs font-semibold tracking-[0.18em] text-teal uppercase">
-          Start a conversation
-        </p>
-        <h1 className="mt-3 font-heading text-4xl text-foreground sm:text-5xl">
-          Tell us about the community. We will map the system.
-        </h1>
-        <p className="mt-5 text-base leading-7 text-muted-foreground">
-          These conversations are for operators: owners, administrators, and
-          marketing leads at care homes and senior communities. Bring the
-          website you have now, how inquiries reach the team, where occupancy
-          is tight, and whether families can find you in AI answers. This is
-          not a family intake form.
-        </p>
-        <ul className="mt-8 space-y-3 text-sm leading-6 text-muted-foreground">
-          <li>
-            Typically 30 to 40 minutes with someone who knows community
-            marketing operations.
-          </li>
-          <li>
-            Call{" "}
-            <a href={site.phoneHref} className="font-medium text-foreground underline">
-              {site.phone}
-            </a>{" "}
-            if you would rather talk live.
-          </li>
-          <li>
-            Or email{" "}
-            <a
-              href={`mailto:${site.email}`}
-              className="font-medium text-foreground underline"
-            >
-              {site.email}
-            </a>
-            .
-          </li>
-        </ul>
-      </div>
-      <div className="rounded-3xl border border-border bg-card p-6 sm:p-8">
-        <StartForm />
-      </div>
-    </div>
+    <>
+      <JsonLd
+        data={pageGraph({
+          path: "/start",
+          title: TITLE,
+          description: DESCRIPTION,
+          type: "ContactPage",
+          crumbs: [
+            ["Home", ""],
+            ["Start a conversation", "/start"],
+          ],
+        })}
+      />
+      <PageHero
+        crumbs={[
+          ["Home", ""],
+          ["Start a conversation", "/start"],
+        ]}
+        eyebrow="Start a conversation"
+        h1={
+          <>
+            Get a free <span className="text-gradient">AI visibility check.</span>
+          </>
+        }
+        lead="Tell us about your community. We will run it through real family questions across ChatGPT, Gemini, Perplexity, and Google AI Overviews and show you what they say, who they recommend instead, and what to fix first."
+      />
+      <Section>
+        <div className="split wide-left">
+          <StartForm />
+          <div className="stack">
+            <HeadBlock
+              eyebrow="What happens next"
+              heading="Three steps, no pressure."
+              id="next"
+            />
+            <Steps
+              items={[
+                [
+                  "We run the check",
+                  "Around 20 family questions for your care types and city, across major assistants.",
+                ],
+                [
+                  "We send the findings",
+                  "Who gets named, whether you are cited, and what assistants get wrong.",
+                ],
+                [
+                  "We talk it through",
+                  "A 30-minute call on what to fix first, whether or not you hire us.",
+                ],
+              ]}
+            />
+            <p className="muted">
+              Prefer to talk now? Call <a href={site.phoneHref}>{site.phone}</a> or email{" "}
+              <a href={`mailto:${site.email}`}>{site.email}</a>.
+            </p>
+          </div>
+        </div>
+      </Section>
+    </>
   );
 }

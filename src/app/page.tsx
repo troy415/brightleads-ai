@@ -1,333 +1,402 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  Bot,
-  Globe,
-  Megaphone,
-  Settings2,
-  ShieldCheck,
-} from "lucide-react";
 
-import { FaqSection } from "@/components/faq-section";
+import { AssistantPreview } from "@/components/assistant-preview";
+import {
+  Cards,
+  Checks,
+  CompareTable,
+  CtaBand,
+  FaqList,
+  HeadBlock,
+  Section,
+  Steps,
+} from "@/components/chrome";
+import { Arrow } from "@/components/icons";
 import { JsonLd } from "@/components/json-ld";
-import { ProductPreview } from "@/components/product-preview";
-import { buttonVariants } from "@/components/ui/button";
-import { faqPageJsonLd } from "@/lib/json-ld";
+import { AUDIENCES, HOME_FAQS, STEPS } from "@/lib/catalog";
+import { faqPageJsonLd, pageGraph } from "@/lib/json-ld";
 import { site } from "@/lib/site";
-import { cn } from "cn";
+
+const WHY = [
+  {
+    icon: "spark" as const,
+    t: "Built for AI answers from day one",
+    d: "Families ask assistants before they call. We engineer your entity, content, and schema so models can find, trust, and cite you. It is part of every plan, not an upsell.",
+  },
+  {
+    icon: "link" as const,
+    t: "One connected system",
+    d: "Website, search, ads, reviews, CRM, and sales follow-up share one plan, one tracking setup, and one report. Nothing is handed off between vendors who never talk.",
+  },
+  {
+    icon: "chart" as const,
+    t: "Measured by move-ins",
+    d: "We report cost per inquiry, tour, and move-in by source. Traffic and impressions are supporting numbers, not the goal.",
+  },
+  {
+    icon: "key" as const,
+    t: "Month to month. You own everything.",
+    d: "No long-term contracts. Your website, domains, ad accounts, analytics, CRM, and content are in your name from the first day.",
+  },
+  {
+    icon: "home" as const,
+    t: "Built by an operator",
+    d: "Our founder has run RCFE operations and worked in senior placement. We know what happens after the form is submitted, and we market for that.",
+  },
+  {
+    icon: "shield" as const,
+    t: "Compliance-aware by default",
+    d: "Housing ad category rules, HIPAA-aware tracking, TCPA and A2P 10DLC for texting, and WCAG accessibility for older readers are handled from the start.",
+  },
+];
 
 export default function HomePage() {
   return (
     <>
-      <JsonLd data={faqPageJsonLd(site.url)} />
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 glow-sky" />
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
-          <div>
-            <p className="text-xs font-semibold tracking-[0.18em] text-teal uppercase">
-              For care homes and senior communities
-            </p>
-            <h1 className="mt-4 max-w-xl font-heading text-4xl leading-[1.12] font-extrabold text-foreground sm:text-5xl lg:text-[3.4rem]">
-              Find residents with a system that{" "}
+      <JsonLd
+        data={pageGraph({
+          path: "/",
+          title: `${site.tagline} | BrightLeads.AI`,
+          description: site.description,
+          answer: HOME_FAQS[0].a,
+          crumbs: [["Home", ""]],
+          faqs: HOME_FAQS,
+        })}
+      />
+      <JsonLd data={faqPageJsonLd(site.url, HOME_FAQS)} />
+      <section className="hero">
+        <div className="glow" />
+        <div className="wrap hero-grid">
+          <div className="hero-copy">
+            <p className="eyebrow">Senior living marketing agency</p>
+            <h1>
+              Fill rooms with a system that{" "}
               <span className="text-gradient">works together.</span>
             </h1>
-            <p className="mt-6 max-w-lg text-base leading-7 text-muted-foreground sm:text-lg">
-              BrightLeads.AI is a marketing agency for care homes, senior
-              communities, RCFEs, ARFs, and similar operators. Web design,
-              marketing campaigns, and technical systems interact to drive
-              resident leads. AI visibility is how the community shows up in AI
-              answers, not only in Google.
+            <p className="hero-line">{site.heroLine}</p>
+            <p className="lead">
+              BrightLeads.AI is a full-service senior living marketing agency. We
+              run your website, SEO, local search, paid media, reputation, CRM
+              follow-up, and sales enablement as one system, and we make sure
+              your community shows up when families ask ChatGPT, Gemini,
+              Perplexity, or Google AI Overviews where to look.
             </p>
-            <p className="mt-4 max-w-lg text-base leading-7 text-muted-foreground sm:text-lg">
-              Families are the residents you want. This site is for the
-              operators who run the home.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
-                href="/start"
-                className={cn(
-                  buttonVariants({ size: "lg" }),
-                  "h-12 px-6 text-sm"
-                )}
-              >
-                Start a conversation
-                <ArrowRight />
+            <div className="btns">
+              <Link className="btn btn-brand" href="/start">
+                Get a free AI visibility check <Arrow />
               </Link>
-              <Link
-                href="/ai-visibility"
-                className={cn(
-                  buttonVariants({ variant: "outline", size: "lg" }),
-                  "h-12 px-6 text-sm"
-                )}
-              >
-                See AI visibility
+              <Link className="btn btn-ghost" href="/services">
+                See all services
               </Link>
             </div>
-            <p className="mt-6 text-sm text-muted-foreground">
-              Built in San Francisco. Connected systems plus AI visibility, not
-              another disconnected vendor.
+            <p className="hero-note">
+              Assisted living, memory care, independent living, life plan
+              communities, RCFEs, board and care, ARFs, and home care. Based in
+              San Francisco, working with operators nationwide. Month to month,
+              no long-term contracts.
             </p>
           </div>
-          <ProductPreview />
+          <AssistantPreview />
         </div>
       </section>
 
-      <section className="border-y border-border bg-white">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
-          {[
-            {
-              label: "Web design",
-              copy: "A site families can actually inquire from, written for your care type, rooms, and neighborhood, not a template that could belong to anyone.",
-            },
-            {
-              label: "Campaigns",
-              copy: "Search, ads, and outreach that send people to a page that converts, instead of dumping traffic on a brochure that goes nowhere.",
-            },
-            {
-              label: "Technical systems",
-              copy: "Forms, routing, tracking, and follow-up so a lead reaches your team instead of dying in an inbox nobody checks.",
-            },
-            {
-              label: "AI visibility",
-              copy: "Entity facts, structured pages, and crawl access so assistants can cite the community when a family asks where to look, not only Google.",
-            },
-          ].map((item) => (
-            <div key={item.label}>
-              <p className="text-xs font-semibold tracking-[0.16em] text-gold uppercase">
-                {item.label}
+      <Section band="band" labelledBy="who">
+        <div className="split wide-left">
+          <div className="stack">
+            <HeadBlock
+              eyebrow="Who we are"
+              heading="A senior living marketing agency built for how families search now."
+              id="who"
+            />
+            <div className="prose">
+              <p>
+                Families still search Google. More and more of them also ask an
+                AI assistant to shortlist communities, explain the difference
+                between assisted living and memory care, or check what a
+                community costs. The communities those assistants name are the
+                ones with clear facts, strong reviews, and pages written as
+                answers.
               </p>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                {item.copy}
+              <p>
+                We build that foundation and then run every channel on top of
+                it: search, local, paid, reviews, content, CRM, and sales
+                follow-up. One team, one plan, one report, measured by move-ins.
               </p>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-        <p className="text-xs font-semibold tracking-[0.18em] text-teal uppercase">
-          How the pieces connect
-        </p>
-        <h2 className="mt-3 max-w-2xl font-heading text-3xl text-foreground sm:text-4xl">
-          Leads come from the interaction, not from one tactic in isolation.
-        </h2>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {[
-            {
-              icon: Globe,
-              title: "The website has a job",
-              copy: "It has to explain the community, answer the questions families actually ask, and capture an inquiry. Pretty pages that cannot take a lead do not fill rooms.",
-            },
-            {
-              icon: Megaphone,
-              title: "Campaigns feed that site",
-              copy: "Paid and organic work only pays off if the destination matches the search. We send people to the right page for memory care, respite, or a specific community, not a generic homepage.",
-            },
-            {
-              icon: Settings2,
-              title: "Systems keep the lead alive",
-              copy: "When someone inquires, the form, notification, and follow-up have to fire. We wire the technical layer so marketing and operations see the same lead.",
-            },
-            {
-              icon: Bot,
-              title: "AI answers can cite you",
-              copy: "Families now ask assistants, not only Google. We make the community a clear entity with facts, schema, and answer-ready pages so models can name you instead of a competitor.",
-            },
-          ].map((item) => (
-            <article
-              key={item.title}
-              className="rounded-2xl border border-border bg-white p-6 shadow-[0_12px_40px_rgba(14,165,233,0.08)]"
-            >
-              <item.icon className="size-5 text-teal" />
-              <h3 className="mt-4 font-heading text-2xl text-foreground">
-                {item.title}
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                {item.copy}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section
-        id="ai-visibility"
-        className="border-y border-border bg-white"
-      >
-        <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_1fr] lg:items-center">
-          <div>
-            <p className="text-xs font-semibold tracking-[0.18em] text-teal uppercase">
-              AI visibility
-            </p>
-            <h2 className="mt-3 font-heading text-3xl text-foreground sm:text-4xl">
-              Show up when families ask an assistant, not only when they search Google.
-            </h2>
-            <p className="mt-4 text-sm leading-6 text-muted-foreground">
-              Classic SEO still matters. It is no longer enough. BrightLeads.AI
-              treats AI visibility as service work: the same connected system
-              we build for the web, aimed at how ChatGPT, Gemini, Perplexity,
-              and similar tools answer questions about care in your
-              neighborhood.
-            </p>
-            <p className="mt-4 text-sm leading-6 text-muted-foreground">
-              We do this on our own site too: JSON-LD, an llms.txt file,
-              semantic headings, a citable FAQ, and a clear entity. No invented
-              reviews, years in business, or client counts.
-            </p>
-            <Link
-              href="/ai-visibility"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground"
-            >
-              How AI visibility works <ArrowRight className="size-4" />
-            </Link>
           </div>
-          <ul className="space-y-4 rounded-3xl border border-teal/20 bg-teal-soft p-8">
-            {[
-              "Name, San Francisco office, services, and who the buyer is, stated in plain language.",
-              "Structured data so machines can parse the agency and, on community sites, the home itself.",
-              "Pages written as answers: who you are, who you serve, how you differ, how to inquire.",
-              "Crawl access for search and AI bots, plus an llms.txt overview they can retrieve.",
-            ].map((point) => (
-              <li key={point} className="relative pl-5 text-sm leading-6 text-foreground">
-                <span className="absolute top-2.5 left-0 size-1.5 rounded-full bg-teal" />
-                {point}
-              </li>
-            ))}
-          </ul>
+          <dl className="facts" aria-label="BrightLeads.AI at a glance">
+            <dt>Company</dt>
+            <dd>BrightLeads.AI</dd>
+            <dt>What we do</dt>
+            <dd>Full-service digital marketing for senior living</dd>
+            <dt>Based in</dt>
+            <dd>San Francisco, California</dd>
+            <dt>Serves</dt>
+            <dd>Operators across the United States</dd>
+            <dt>Care types</dt>
+            <dd>
+              Assisted living, memory care, independent living, life plan
+              communities, RCFEs, board and care, ARFs, home care
+            </dd>
+            <dt>Terms</dt>
+            <dd>Month to month. No long-term contracts.</dd>
+            <dt>Specialty</dt>
+            <dd>AI visibility plus a connected lead system</dd>
+          </dl>
         </div>
-      </section>
+      </Section>
 
-      <section className="bg-navy text-primary-foreground">
-        <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2">
-          <div>
-            <p className="text-xs font-semibold tracking-[0.18em] text-gold uppercase">
-              How we work with operators
-            </p>
-            <h2 className="mt-3 font-heading text-3xl sm:text-4xl">
-              From occupancy pressure to a system that can take a lead.
-            </h2>
-            <p className="mt-4 text-sm leading-6 text-primary-foreground/70">
-              This is not a family directory and not a placement-agent product.
-              It is marketing built for the people who run the home. Not a
-              generic SEO shop. Not a 40-year occupancy consultancy.
-            </p>
-          </div>
-          <ol className="space-y-6">
-            {[
-              {
-                n: "01",
-                title: "Start with who you want",
-                copy: "Care type, rooms, neighborhood, and the families you can actually serve. Occupancy is the goal. Vanity traffic is not.",
-              },
-              {
-                n: "02",
-                title: "Build the website around inquiry",
-                copy: "Copy, layout, and forms that match how families search for a community, an RCFE, or an ARF.",
-              },
-              {
-                n: "03",
-                title: "Run campaigns into that site",
-                copy: "Search and ads that land on the right page, with tracking that tells you what produced a real inquiry.",
-              },
-              {
-                n: "04",
-                title: "Wire follow-up so nothing sits",
-                copy: "The technical system routes the lead to your team and keeps the next step visible.",
-              },
-              {
-                n: "05",
-                title: "Make the community visible to AI",
-                copy: "Structured facts and answer-ready pages so assistants can cite the community by name, location, and care type.",
-              },
-            ].map((step) => (
-              <li key={step.n} className="flex gap-4 border-t border-white/10 pt-6">
-                <span className="font-mono text-sm text-gold">{step.n}</span>
-                <div>
-                  <h3 className="text-lg font-medium">{step.title}</h3>
-                  <p className="mt-1 text-sm leading-6 text-primary-foreground/70">
-                    {step.copy}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      <Section labelledBy="services">
+        <HeadBlock
+          eyebrow="Services"
+          heading="Everything a senior living marketing department does, in one connected system."
+          lead="Pick one service or run all of them together. Each one is built to feed the others."
+          id="services"
+        />
+        <Cards
+          cols="g3"
+          items={[
+            {
+              href: "/ai-visibility",
+              icon: "spark" as const,
+              t: "AI visibility",
+              d: "Entity facts, schema, answer-ready pages, and crawl access so AI assistants name and cite your community.",
+            },
+            {
+              href: "/services/senior-living-seo",
+              icon: "search" as const,
+              t: "Senior living SEO",
+              d: "Care-type and city pages, technical SEO, and content that ranks for the searches families actually run.",
+            },
+            {
+              href: "/services/local-seo",
+              icon: "pin" as const,
+              t: "Local SEO & Google Business Profile",
+              d: "Map pack visibility, accurate listings, and directory cleanup for every location.",
+            },
+            {
+              href: "/services/paid-media",
+              icon: "target" as const,
+              t: "Paid media & PPC",
+              d: "Google Ads, Meta, YouTube, and retargeting that land on pages built to convert, with housing ad rules handled.",
+            },
+            {
+              href: "/services/websites",
+              icon: "layout" as const,
+              t: "Websites & conversion",
+              d: "Fast, accessible community websites written for adult children and built to take an inquiry.",
+            },
+            {
+              href: "/services/reputation-management",
+              icon: "star" as const,
+              t: "Reputation & PR",
+              d: "Review generation, response, monitoring, and earned media that builds trust with families and models.",
+            },
+            {
+              href: "/services/branding",
+              icon: "brush" as const,
+              t: "Branding & creative",
+              d: "Positioning, naming, identity, photography direction, and storytelling that sets you apart locally.",
+            },
+            {
+              href: "/services/content-social",
+              icon: "pen" as const,
+              t: "Content & social",
+              d: "Answer-first articles, guides, resident stories, and social that feed search, AI answers, and nurture.",
+            },
+            {
+              href: "/services/crm-automation",
+              icon: "flow" as const,
+              t: "CRM & lead nurturing",
+              d: "Routing, lead scoring, and email and SMS nurture in HubSpot, Salesforce, GoHighLevel, or your senior-living CRM.",
+            },
+            {
+              href: "/services/sales-enablement",
+              icon: "phone" as const,
+              t: "Sales enablement",
+              d: "Speed to lead, inquiry scripts, tour playbooks, and coaching that turn inquiries into move-ins.",
+            },
+            {
+              href: "/services/market-research",
+              icon: "chart" as const,
+              t: "Market research & data",
+              d: "Market studies, competitor audits, pricing surveys, and audience research.",
+            },
+            {
+              href: "/services/lease-up",
+              icon: "key" as const,
+              t: "Lease-up & repositioning",
+              d: "Pre-opening demand generation and occupancy recovery programs with weekly pacing.",
+            },
+          ]}
+        />
+      </Section>
 
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-        <div className="grid gap-10 lg:grid-cols-2">
-          <article className="rounded-3xl border border-teal/20 bg-teal-soft p-8 sm:p-10">
-            <p className="text-xs font-semibold tracking-[0.16em] text-teal uppercase">
-              Care homes and RCFEs
-            </p>
-            <h2 className="mt-3 font-heading text-3xl text-foreground">
-              For homes that need the right families to find them.
-            </h2>
-            <p className="mt-4 text-sm leading-6 text-muted-foreground">
-              Residential care, board and care, and RCFEs often lose inquiries
-              to a weak website or a campaign that never reaches a real form.
-              We build the path from search, and from AI answers, to a
-              conversation with your staff.
-            </p>
-            <Link
-              href="/communities"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground"
-            >
-              Built for operators <ArrowRight className="size-4" />
-            </Link>
-          </article>
-          <article className="rounded-3xl border border-border bg-white p-8 sm:p-10">
-            <p className="text-xs font-semibold tracking-[0.16em] text-gold uppercase">
-              Communities and ARFs
-            </p>
-            <h2 className="mt-3 font-heading text-3xl text-foreground">
-              For communities that cannot live on walk-ins and word of mouth.
-            </h2>
-            <p className="mt-4 text-sm leading-6 text-muted-foreground">
-              Senior communities and adult residential facilities need a
-              repeatable way to show up when families search or ask an
-              assistant. Website, campaigns, follow-up, and AI visibility have
-              to work as one system.
-            </p>
-            <Link
-              href="/communities"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground"
-            >
-              See who we work with <ArrowRight className="size-4" />
-            </Link>
-          </article>
-        </div>
-      </section>
-
-      <FaqSection />
-
-      <section className="border-t border-border bg-white">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-4 py-16 sm:px-6 lg:flex-row lg:items-center">
-          <div className="max-w-xl">
-            <div className="mb-3 flex items-center gap-2 text-teal">
-              <ShieldCheck className="size-4" />
-              <span className="text-xs font-semibold tracking-[0.16em] uppercase">
-                Agency work, not a brochure
-              </span>
+      <section className="band-navy" aria-labelledby="ai">
+        <div className="wrap section">
+          <div className="split">
+            <div className="stack">
+              <HeadBlock
+                eyebrow="AI visibility"
+                heading="Families now ask AI where to look. Is your community in the answer?"
+                lead="Classic SEO still matters, but it is no longer enough. Assistants summarize, recommend, and cite. We make your community easy to understand, easy to verify, and easy to cite."
+                id="ai"
+              />
+              <div className="btns">
+                <Link className="btn btn-brand" href="/ai-visibility">
+                  How AI visibility works <Arrow />
+                </Link>
+                <Link className="btn btn-ghost" href="/start">
+                  Check my community
+                </Link>
+              </div>
             </div>
-            <h2 className="font-heading text-3xl text-foreground sm:text-4xl">
-              Ready to talk about occupancy and leads?
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Tell us about the community, the website you have now, and how
-              inquiries reach the team. We will map a system that can take a
-              lead, including how you show up in AI answers.
-            </p>
+            <Checks
+              items={[
+                <span key="1">
+                  <b>Entity clarity.</b> One consistent set of facts about your
+                  community: name, address, license, care types, capacity, and
+                  contact details.
+                </span>,
+                <span key="2">
+                  <b>Structured data.</b> Schema.org markup for your
+                  organization, each location, services, FAQs, and reviews so
+                  machines can parse what you offer.
+                </span>,
+                <span key="3">
+                  <b>Answer-ready pages.</b> Pages that answer the questions
+                  families ask assistants, including cost, care levels,
+                  availability, and how to tour.
+                </span>,
+                <span key="4">
+                  <b>Crawl access.</b> Robots rules that welcome AI crawlers, an
+                  llms.txt file, fast static pages, and clean sitemaps.
+                </span>,
+                <span key="5">
+                  <b>Corroboration.</b> Accurate listings, reviews, and
+                  third-party mentions that let models confirm what your site
+                  says.
+                </span>,
+                <span key="6">
+                  <b>Measurement.</b> A monthly prompt panel that tracks how
+                  often assistants mention and cite you versus nearby
+                  communities.
+                </span>,
+              ]}
+            />
           </div>
-          <Link
-            href="/start"
-            className={cn(buttonVariants({ size: "lg" }), "h-12 px-6")}
-          >
-            Talk with us
-            <ArrowRight />
-          </Link>
         </div>
       </section>
+
+      <Section labelledBy="why">
+        <HeadBlock
+          eyebrow="Why operators choose us"
+          heading="What makes BrightLeads.AI different."
+          id="why"
+        />
+        <Cards items={WHY} />
+      </Section>
+
+      <Section band="band-tint" labelledBy="compare">
+        <HeadBlock
+          eyebrow="How we compare"
+          heading="How we compare with the usual agency models."
+          lead={
+            <>
+              A fair summary of common patterns in senior living marketing.
+              Individual agencies vary.{" "}
+              <Link href="/choosing-an-agency">Read the full buyer&apos;s guide</Link>.
+            </>
+          }
+          id="compare"
+        />
+        <CompareTable
+          caption="Senior living agency models compared"
+          headers={[
+            "What you get",
+            "Typical SEO and PPC retainer",
+            "Traditional occupancy consultancy",
+            "BrightLeads.AI",
+          ]}
+          usCol={3}
+          rows={[
+            [
+              "AI visibility (ChatGPT, Gemini, AI Overviews)",
+              "Often an add-on to an SEO retainer",
+              "Rarely in scope",
+              "Included in every plan, measured monthly",
+            ],
+            [
+              "Contract terms",
+              "Commonly 6 to 12 month minimums",
+              "Project or annual retainers",
+              "Month to month, 30 days' notice",
+            ],
+            [
+              "Who owns the website, ad accounts, and data",
+              "Varies. Sometimes the agency.",
+              "Varies",
+              "You do, from day one",
+            ],
+            [
+              "What gets reported",
+              "Rankings, traffic, clicks",
+              "Research findings and plans",
+              "Inquiries, tours, and move-ins by source",
+            ],
+            [
+              "Small homes (6 to 49 beds)",
+              "Often below the minimum",
+              "Rarely",
+              "Supported with right-sized plans",
+            ],
+            [
+              "Sales follow-up and CRM",
+              "Usually out of scope",
+              "Consulting only",
+              "Built and run as part of the system",
+            ],
+          ]}
+        />
+      </Section>
+
+      <Section labelledBy="serve">
+        <HeadBlock
+          eyebrow="Who we serve"
+          heading="Built for every kind of senior living operator."
+          id="serve"
+        />
+        <Cards
+          cols="g3"
+          items={AUDIENCES.map((a) => ({
+            href: a.href,
+            icon: a.icon,
+            t: a.name,
+            d: a.blurb ?? "",
+            more: "See how we help",
+          }))}
+        />
+      </Section>
+
+      <Section band="band" labelledBy="process">
+        <div className="split">
+          <div className="stack">
+            <HeadBlock
+              eyebrow="How we work"
+              heading="From census goals to a system that produces move-ins."
+              lead="A clear sequence, so the fundamentals are in place before we spend a dollar on ads."
+              id="process"
+            />
+            <Link className="btn btn-ghost" href="/how-we-work" style={{ justifySelf: "start" }}>
+              See our process and terms
+            </Link>
+          </div>
+          <Steps items={STEPS} />
+        </div>
+      </Section>
+
+      <FaqList faqs={HOME_FAQS} />
+      <CtaBand />
     </>
   );
 }

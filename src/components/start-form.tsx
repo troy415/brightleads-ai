@@ -1,235 +1,169 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Loader2 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { cn } from "cn";
+import { Arrow } from "@/components/icons";
 
-type Status = "empty" | "loading" | "error" | "success";
+type Status = "empty" | "loading" | "error";
 
-const fieldClass = "h-11 bg-card text-base md:text-sm";
+const CARE = [
+  "Assisted living",
+  "Memory care",
+  "Independent living",
+  "Life plan / CCRC",
+  "RCFE / board and care",
+  "ARF",
+  "Home care",
+];
+
+const NEEDS = [
+  "AI visibility",
+  "SEO / local SEO",
+  "Paid media",
+  "Website",
+  "Reputation",
+  "CRM / nurture",
+  "Sales enablement",
+  "Lease-up",
+  "Everything",
+];
+
+function slug(value: string) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
 
 export function StartForm() {
+  const router = useRouter();
   const [status, setStatus] = useState<Status>("empty");
   const [error, setError] = useState<string | null>(null);
-  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus("loading");
     setError(null);
-    setFieldErrors({});
 
     const form = event.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const data = new FormData(form);
+    const payload = {
+      name: String(data.get("name") ?? ""),
+      role: String(data.get("role") ?? ""),
+      organization: String(data.get("organization") ?? ""),
+      website: String(data.get("website") ?? ""),
+      email: String(data.get("email") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      location: String(data.get("location") ?? ""),
+      communities: String(data.get("communities") ?? ""),
+      care: data.getAll("care"),
+      needs: data.getAll("needs"),
+      message: String(data.get("message") ?? ""),
+      company_site: String(data.get("company_site") ?? ""),
+    };
 
     try {
       const response = await fetch("/api/demo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
-      const payload = (await response.json()) as {
-        error?: string;
-        fields?: Record<string, string>;
-      };
-
+      const body = (await response.json()) as { error?: string };
       if (!response.ok) {
         setStatus("error");
-        setError(payload.error ?? "We could not send that request.");
-        setFieldErrors(payload.fields ?? {});
+        setError(body.error ?? "Check the form and try again.");
         return;
       }
-
-      setStatus("success");
-      form.reset();
+      router.push("/thank-you");
     } catch {
       setStatus("error");
       setError("The network dropped before we could send your request. Try again.");
     }
   }
 
-  if (status === "success") {
-    return (
-      <div className="rounded-2xl border border-teal/25 bg-teal-soft p-8">
-        <p className="text-xs font-semibold tracking-[0.16em] text-teal uppercase">
-          Request received
-        </p>
-        <h2 className="mt-2 font-heading text-3xl text-foreground">
-          We will be in touch shortly.
-        </h2>
-        <p className="mt-3 text-sm leading-6 text-muted-foreground">
-          A BrightLeads.AI teammate will follow up to talk through your
-          community, the website you have now, and how inquiries reach the
-          team. If it is urgent, call us at{" "}
-          <a href="tel:+14157412648" className="font-medium text-foreground underline">
-            (415) 741-2648
-          </a>
-          .
-        </p>
-        <Button
-          type="button"
-          variant="outline"
-          className="mt-6 h-10"
-          onClick={() => setStatus("empty")}
-        >
-          Submit another request
-        </Button>
-      </div>
-    );
-  }
-
   return (
-    <form onSubmit={onSubmit} className="space-y-5" noValidate>
-      <input
-        type="text"
-        name="company_url"
-        tabIndex={-1}
-        autoComplete="off"
-        className="hidden"
-        aria-hidden="true"
-      />
-      {status === "error" && error ? (
-        <div
-          role="alert"
-          className="rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive"
-        >
-          {error}
-        </div>
-      ) : null}
-      <div className="grid gap-5 sm:grid-cols-2">
-        <Field
-          id="name"
-          label="Your name"
-          error={fieldErrors.name}
-          required
-        >
-          <Input
-            id="name"
-            name="name"
-            className={fieldClass}
-            autoComplete="name"
-            disabled={status === "loading"}
-            aria-invalid={Boolean(fieldErrors.name)}
-          />
-        </Field>
-        <Field
-          id="email"
-          label="Work email"
-          error={fieldErrors.email}
-          required
-        >
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            className={fieldClass}
-            autoComplete="email"
-            disabled={status === "loading"}
-            aria-invalid={Boolean(fieldErrors.email)}
-          />
-        </Field>
-      </div>
-      <div className="grid gap-5 sm:grid-cols-2">
-        <Field
-          id="community"
-          label="Community or home"
-          error={fieldErrors.community}
-          required
-        >
-          <Input
-            id="community"
-            name="community"
-            className={fieldClass}
-            disabled={status === "loading"}
-            aria-invalid={Boolean(fieldErrors.community)}
-          />
-        </Field>
-        <Field id="role" label="Role" error={fieldErrors.role}>
-          <Input
-            id="role"
-            name="role"
-            placeholder="Owner, administrator, marketing"
-            className={fieldClass}
-            disabled={status === "loading"}
-          />
-        </Field>
-      </div>
-      <Field id="markets" label="Where you operate" error={fieldErrors.markets}>
-        <Input
-          id="markets"
-          name="markets"
-          placeholder="City, county, or region"
-          className={fieldClass}
-          disabled={status === "loading"}
-        />
-      </Field>
-      <Field
-        id="message"
-        label="What should we talk through?"
-        error={fieldErrors.message}
-      >
-        <Textarea
-          id="message"
-          name="message"
-          rows={4}
-          placeholder="Website, campaigns, occupancy, AI visibility, how inquiries reach the team."
-          className="min-h-28 bg-card"
-          disabled={status === "loading"}
-        />
-      </Field>
-      <Button
-        type="submit"
-        size="lg"
-        className="h-11 w-full sm:w-auto px-6"
-        disabled={status === "loading"}
-      >
-        {status === "loading" ? (
-          <>
-            <Loader2 className="animate-spin" />
-            Sending request...
-          </>
-        ) : (
-          "Start a conversation"
-        )}
-      </Button>
-      <p className="text-xs leading-5 text-muted-foreground">
-        We will only use this to follow up about your community. No newsletter,
-        no shared lists.
+    <form className="form" name="start" onSubmit={onSubmit} data-bl>
+      <p hidden>
+        <label>
+          Leave this empty <input name="company_site" id="company_site" tabIndex={-1} autoComplete="off" />
+        </label>
       </p>
-    </form>
-  );
-}
-
-function Field({
-  id,
-  label,
-  error,
-  required,
-  children,
-}: {
-  id: string;
-  label: string;
-  error?: string;
-  required?: boolean;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="space-y-2">
-      <Label htmlFor={id}>
-        {label}
-        {required ? <span className="text-teal"> *</span> : null}
-      </Label>
-      {children}
+      <div className="row">
+        <div className="field">
+          <label htmlFor="f-name">Your name</label>
+          <input id="f-name" name="name" autoComplete="name" required />
+        </div>
+        <div className="field">
+          <label htmlFor="f-role">Role</label>
+          <input id="f-role" name="role" placeholder="Owner, ED, VP Sales and Marketing" />
+        </div>
+      </div>
+      <div className="row">
+        <div className="field">
+          <label htmlFor="f-org">Community or company</label>
+          <input id="f-org" name="organization" autoComplete="organization" required />
+        </div>
+        <div className="field">
+          <label htmlFor="f-web">Website</label>
+          <input id="f-web" name="website" type="url" placeholder="https://" />
+        </div>
+      </div>
+      <div className="row">
+        <div className="field">
+          <label htmlFor="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autoComplete="email" required />
+        </div>
+        <div className="field">
+          <label htmlFor="f-phone">Phone</label>
+          <input id="f-phone" name="phone" type="tel" autoComplete="tel" />
+        </div>
+      </div>
+      <div className="row">
+        <div className="field">
+          <label htmlFor="f-loc">City and state</label>
+          <input id="f-loc" name="location" placeholder="San Mateo, CA" />
+        </div>
+        <div className="field">
+          <label htmlFor="f-count">Number of communities</label>
+          <select id="f-count" name="communities" defaultValue="1">
+            <option>1</option>
+            <option>2 to 5</option>
+            <option>6 to 20</option>
+            <option>More than 20</option>
+          </select>
+        </div>
+      </div>
+      <fieldset className="field">
+        <legend>Care types</legend>
+        <div className="opts">
+          {CARE.map((item) => (
+            <label key={item}>
+              <input type="checkbox" name="care" value={item} id={`care-${slug(item)}`} /> {item}
+            </label>
+          ))}
+        </div>
+      </fieldset>
+      <fieldset className="field">
+        <legend>What do you need help with?</legend>
+        <div className="opts">
+          {NEEDS.map((item) => (
+            <label key={item}>
+              <input type="checkbox" name="needs" value={item} id={`needs-${slug(item)}`} /> {item}
+            </label>
+          ))}
+        </div>
+      </fieldset>
+      <div className="field">
+        <label htmlFor="f-msg">What is happening with occupancy and leads right now?</label>
+        <textarea id="f-msg" name="message" />
+      </div>
       {error ? (
-        <p className={cn("text-xs text-destructive")} role="status">
+        <p className="small" role="alert">
           {error}
         </p>
       ) : null}
-    </div>
+      <button className="btn btn-brand" type="submit" disabled={status === "loading"} style={{ justifySelf: "start" }}>
+        {status === "loading" ? "Sending…" : "Request my free AI visibility check"} <Arrow />
+      </button>
+      <p className="small">We reply within one business day. We never share your information.</p>
+    </form>
   );
 }

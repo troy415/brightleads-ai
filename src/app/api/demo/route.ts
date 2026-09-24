@@ -1,25 +1,18 @@
 import { NextResponse } from "next/server";
 
-type InquiryBody = {
-  name?: string;
-  email?: string;
-  community?: string;
-  agency?: string;
-  role?: string;
-  markets?: string;
-  message?: string;
-  company_url?: string;
-};
-
 function asString(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
 }
 
-export async function POST(request: Request) {
-  let body: InquiryBody;
+function asList(value: unknown) {
+  if (Array.isArray(value)) return value.map(asString).filter(Boolean);
+  return asString(value) ? [asString(value)] : [];
+}
 
+export async function POST(request: Request) {
+  let body: Record<string, unknown>;
   try {
-    body = (await request.json()) as InquiryBody;
+    body = (await request.json()) as Record<string, unknown>;
   } catch {
     return NextResponse.json(
       { error: "Send the form as JSON so we can read it." },
@@ -27,23 +20,21 @@ export async function POST(request: Request) {
     );
   }
 
-  if (asString(body.company_url)) {
+  if (asString(body.company_site) || asString(body.company_url)) {
     return NextResponse.json({ ok: true });
   }
 
   const name = asString(body.name);
   const email = asString(body.email);
-  const community = asString(body.community) || asString(body.agency);
-  const role = asString(body.role);
-  const markets = asString(body.markets);
-  const message = asString(body.message);
+  const organization =
+    asString(body.organization) || asString(body.community) || asString(body.agency);
 
   const fields: Record<string, string> = {};
   if (!name) fields.name = "Add your name.";
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     fields.email = "Use a valid work email.";
   }
-  if (!community) fields.community = "Add the community or home name.";
+  if (!organization) fields.organization = "Add the community or company name.";
 
   if (Object.keys(fields).length > 0) {
     return NextResponse.json(
@@ -55,10 +46,15 @@ export async function POST(request: Request) {
   const payload = {
     name,
     email,
-    community,
-    role,
-    markets,
-    message,
+    organization,
+    role: asString(body.role),
+    website: asString(body.website),
+    phone: asString(body.phone),
+    location: asString(body.location) || asString(body.markets),
+    communities: asString(body.communities),
+    care: asList(body.care),
+    needs: asList(body.needs),
+    message: asString(body.message),
     submittedAt: new Date().toISOString(),
     source: "brightleads-ai-marketing",
   };
@@ -85,8 +81,9 @@ export async function POST(request: Request) {
         {
           error:
             "Your request looked good, but we could not deliver it. Call (415) 741-2648 or email info@brightleads.ai.",
-        },
-        { status: 502 }
+          },
+          { status: 502 }
+        );
       );
     }
   }

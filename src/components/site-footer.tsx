@@ -1,86 +1,89 @@
 import Link from "next/link";
 
 import { Logo } from "@/components/logo";
+import { AUDIENCES, SERVICES } from "@/lib/catalog";
 import { site } from "@/lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-navy text-primary-foreground">
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
-        <div className="md:col-span-2">
-          <Logo className="text-white" />
-          <p className="mt-4 max-w-sm text-sm leading-6 text-primary-foreground/70">
-            A marketing agency for care homes, senior communities, RCFEs, ARFs,
-            and similar operators. Web design, campaigns, technical systems, and
-            AI visibility that interact to drive resident leads.
+    <footer className="site-footer">
+      <div className="wrap top">
+        <div className="brandcol">
+          <Link className="logo-link" href="/">
+            <Logo className="text-white" />
+          </Link>
+          <p>
+            A full-service digital marketing agency for senior living. Strategy,
+            websites, SEO, paid media, reputation, CRM, sales enablement, and AI
+            visibility, run as one system and measured by move-ins. Month to
+            month. No long-term contracts.
           </p>
+          <address>
+            <a href={site.phoneHref}>{site.phone}</a>
+            <br />
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+            <br />
+            {site.addressLine}
+            <br />
+            {site.cityLine}
+          </address>
         </div>
         <div>
-          <p className="text-xs font-semibold tracking-[0.16em] text-gold uppercase">
-            Agency
-          </p>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li>
-              <Link href="/work" className="hover:text-teal">
-                Work
-              </Link>
-            </li>
-            <li>
-              <Link href="/communities" className="hover:text-teal">
-                Communities
-              </Link>
-            </li>
-            <li>
-              <Link href="/ai-visibility" className="hover:text-teal">
-                AI visibility
-              </Link>
-            </li>
-            <li>
-              <Link href="/start" className="hover:text-teal">
-                Start a conversation
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="hover:text-teal">
-                Contact
-              </Link>
-            </li>
+          <h2>Services</h2>
+          <ul>
+            {SERVICES.map((s) => (
+              <li key={s.href}>
+                <Link href={s.href}>{s.name}</Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
-          <p className="text-xs font-semibold tracking-[0.16em] text-gold uppercase">
-            San Francisco
-          </p>
-          <ul className="mt-4 space-y-2 text-sm text-primary-foreground/80">
+          <h2>Who we serve</h2>
+          <ul>
+            {AUDIENCES.map((s) => (
+              <li key={s.href}>
+                <Link href={s.href}>{s.name}</Link>
+              </li>
+            ))}
+          </ul>
+          <h2 style={{ marginTop: "1.8rem" }}>Agency</h2>
+          <ul>
             <li>
-              <a href={site.phoneHref} className="hover:text-teal">
-                {site.phone}
-              </a>
+              <Link href="/how-we-work">How we work</Link>
             </li>
             <li>
-              <a
-                href={`mailto:${site.email}`}
-                className="hover:text-teal"
-              >
-                {site.email}
-              </a>
+              <Link href="/choosing-an-agency">Choosing an agency</Link>
             </li>
             <li>
-              {site.addressLine}
-              <br />
-              {site.cityLine}
+              <Link href="/about">About</Link>
+            </li>
+            <li>
+              <Link href="/guides">Guides</Link>
+            </li>
+            <li>
+              <Link href="/glossary">Glossary</Link>
+            </li>
+            <li>
+              <Link href="/faq">FAQ</Link>
+            </li>
+            <li>
+              <Link href="/contact">Contact</Link>
             </li>
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/10">
-        <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-primary-foreground/50 sm:px-6">
-          © {new Date().getFullYear()} BrightLeads.AI. Marketing systems for
-          care homes and senior communities.{" "}
-          <Link href="/llms.txt" className="hover:text-teal">
-            llms.txt
-          </Link>
-        </p>
+      <div className="wrap bottom">
+        <span>
+          © {new Date().getFullYear()} {site.name}. Digital marketing for senior
+          living operators.
+        </span>
+        <span>
+          <Link href="/privacy">Privacy</Link> ·{" "}
+          <Link href="/llms.txt">llms.txt</Link> ·{" "}
+          <Link href="/llms-full.txt">llms-full.txt</Link> ·{" "}
+          <Link href="/sitemap.xml">Sitemap</Link>
+        </span>
       </div>
     </footer>
   );

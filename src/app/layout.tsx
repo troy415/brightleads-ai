@@ -8,6 +8,7 @@ import { organizationJsonLd } from "@/lib/json-ld";
 import { site } from "@/lib/site";
 
 import "./globals.css";
+import "./chrome.css";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,7 +20,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = "BrightLeads.AI | Senior living marketing agency in San Francisco";
+const title = `${site.tagline} | BrightLeads.AI`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -73,7 +74,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         <JsonLd data={organizationJsonLd} />
         <SiteHeader />
-        <main className="flex-1">{children}</main>
+        <main id="main" className="flex-1">
+          {children}
+        </main>
         <SiteFooter />
       </body>
     </html>

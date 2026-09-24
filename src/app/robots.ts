@@ -2,20 +2,34 @@ import type { MetadataRoute } from "next";
 
 import { site } from "@/lib/site";
 
+const AI_BOTS = [
+  "GPTBot",
+  "OAI-SearchBot",
+  "ChatGPT-User",
+  "ClaudeBot",
+  "Claude-User",
+  "Claude-SearchBot",
+  "anthropic-ai",
+  "PerplexityBot",
+  "Perplexity-User",
+  "Google-Extended",
+  "Googlebot",
+  "Bingbot",
+  "Applebot",
+  "Applebot-Extended",
+  "Amazonbot",
+  "meta-externalagent",
+  "DuckAssistBot",
+  "MistralAI-User",
+  "CCBot",
+  "cohere-ai",
+];
+
 export default function robots(): MetadataRoute.Robots {
-  const allowAll = { userAgent: "*", allow: "/" as const };
   return {
     rules: [
-      allowAll,
-      { userAgent: "GPTBot", allow: "/" },
-      { userAgent: "ChatGPT-User", allow: "/" },
-      { userAgent: "OAI-SearchBot", allow: "/" },
-      { userAgent: "ClaudeBot", allow: "/" },
-      { userAgent: "anthropic-ai", allow: "/" },
-      { userAgent: "PerplexityBot", allow: "/" },
-      { userAgent: "Google-Extended", allow: "/" },
-      { userAgent: "Applebot-Extended", allow: "/" },
-      { userAgent: "CCBot", allow: "/" },
+      { userAgent: "*", allow: "/", disallow: "/thank-you" },
+      ...AI_BOTS.map((userAgent) => ({ userAgent, allow: "/" })),
     ],
     sitemap: `${site.url}/sitemap.xml`,
     host: site.url,
