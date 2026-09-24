@@ -81,9 +81,8 @@ export async function POST(request: Request) {
         {
           error:
             "Your request looked good, but we could not deliver it. Call (415) 741-2648 or email info@brightleads.ai.",
-          },
-          { status: 502 }
-        );
+        },
+        { status: 502 }
       );
     }
   }
